@@ -4,3 +4,74 @@
 .no-padding{
     padding:0 !important;
 }
+/* ********** TÙY CHỌN LẠI MÀU SẮC MENU ********** */
+.navbar-default {
+    background-color: #2b69db;
+    border-color: #e7e7e7;
+  }
+  .navbar-default .navbar-brand {
+    color: rgb(245, 245, 245);
+  }
+  .navbar-default .navbar-brand:hover,
+  .navbar-default .navbar-brand:focus {
+    color: #b92222;
+    background-color: aquamarine;
+  }
+
+  .navbar-default .navbar-nav > li > a {
+    color: rgb(252, 239, 239);
+  }
+  .navbar-default .navbar-nav > li > a:hover,
+  .navbar-default .navbar-nav > li > a:focus {
+    color: rgba(7, 10, 218, 0.801);
+    background-color: aquamarine;
+  }
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:hover,
+  .navbar-default .navbar-nav > .active > a:focus {
+    color: rgba(7, 10, 218, 0.801);
+    background-color: aquamarine;
+  }
+  .navbar-default .navbar-nav > .disabled > a,
+  .navbar-default .navbar-nav > .disabled > a:hover,
+  .navbar-default .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+  }
+  .navbar-default .navbar-nav > .open > a,
+  .navbar-default .navbar-nav > .open > a:hover,
+  .navbar-default .navbar-nav > .open > a:focus {
+    color: rgba(7, 10, 218, 0.801);
+    background-color: aquamarine;
+  }
+  @media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+      color: rgb(248, 244, 244);
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: rgba(7, 10, 218, 0.801);
+        background-color: aquamarine;
+    }
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+        color: rgba(7, 10, 218, 0.801);
+        background-color: aquamarine;
+    }
+ 
+  }
+
+/* ********** TÙY CHỌN LẠI KÍCH THƯỚC MENU ********** */
+.navbar {
+  min-height: 30px;
+}
+.navbar-nav > li > a {
+  line-height: 20px;
+}
+@media (min-width: 768px) {
+  .navbar-nav > li > a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
