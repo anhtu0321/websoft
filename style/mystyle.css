@@ -1,12 +1,45 @@
+/* ************* DUNG CHUNG ************* */
 .no-margin{
     margin:0 !important;
 }
 .no-padding{
     padding:0 !important;
 }
+.border{
+  border:1px solid #6DCFF6;
+}
+.background{
+  background: aquamarine;
+}
+.margin-bottom-5{
+  margin-bottom:5px;
+}
+.margin-right-5{
+  margin-right:5px;
+}
+.wraper{
+  background: #E7F6FF;
+  padding:0px 5px !important;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.5);
+}
+/************ Xử lý top vien xanh ****************/
+.top{
+  background:url(../img/vien-top-xanh.png) no-repeat left center;
+  height: 18px;
+  font-size: 0.9em;;
+}
+@media (max-width: 991px) {
+  .top {
+    background: none;
+  }
+}
+.top img{
+  padding:0px 3px 0px 13px;
+  height:10px;
+}
 /* ********** TÙY CHỌN LẠI MÀU SẮC MENU ********** */
 .navbar-default {
-    background-color: #2b69db;
+    background: linear-gradient(#72c5f6, #1890d7);
     border-color: #e7e7e7;
   }
   .navbar-default .navbar-brand {
@@ -20,7 +53,9 @@
 
   .navbar-default .navbar-nav > li > a {
     color: rgb(252, 239, 239);
+    font-weight: bold;
   }
+
   .navbar-default .navbar-nav > li > a:hover,
   .navbar-default .navbar-nav > li > a:focus {
     color: rgba(7, 10, 218, 0.801);
@@ -74,4 +109,182 @@
     padding-top: 5px;
     padding-bottom: 5px;
   }
+}
+
+/* ****************** Xử lý main ******************* */
+.main-left{
+  width:80%;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  float:left;
+}
+.main-right{
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  width:20%;
+  float:left;
+}
+@media (max-width:767px){
+  .main-left{
+    width:100%;
+  }
+  .main-right{
+    width:100%;
+  }
+}
+/**************** module-left ********************/
+.module-left{
+  padding-right:0px;
+}
+.layout-top{
+  min-height:430px;
+  border: 1px solid #6DCFF6;
+  background: rgb(245, 245, 245);
+  
+}
+.box-new{
+  padding:0px 5px;
+}
+.header-new h4{
+  font-size:1.1em;
+  font-weight: bold;
+  line-height: 23px;
+  text-align: justify;
+}
+.header-new h4 a{
+  color: #355797;
+}
+.header-new img{
+  width:100%;
+}
+.info p{
+  width:100%;
+  text-align: justify;
+  line-height:22px;
+  margin-top:10px;
+  color:#000000;
+}
+.list-new{
+  padding:5px 0px;
+}
+.list-new ul{
+  padding:5px;
+  margin:0;
+  list-style: none;
+}
+.list-new ul li{
+  width:100%;
+  height:75px;
+  text-align: justify;
+  overflow: hidden;
+  line-height: 24px;
+  padding:5px 0;
+  border-bottom: 1px dashed dimgrey;
+}
+.list-new ul li img{
+  width:35%;
+  height:60px;
+  float: left;
+  padding-right:5px;
+}
+.list-new ul li a span{
+  color:#3b3a3a;
+  font-weight: bold;
+}
+/*/****************  molude-center /**************** */
+/**************** * TIN MOI**********/
+.module-center{
+  padding:0px 5px 5px 0;
+}
+.title{
+  background: linear-gradient(#e2f4fe, #8bd2fb);
+  color: #075e97;
+  text-shadow: 0px 1px 1px #fff;
+  font-family: arial !important;
+  font-size: 13px;
+  text-align: left;
+  font-weight: bold;
+  padding-left: 10px;
+  color: white;
+  line-height: 27px;
+}
+.tin-moi-body{
+  height: 396px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  margin-right:5px;
+  margin-top:5px;
+}
+.tin-moi-body ul{
+  width:100%;
+  padding-left:10px;
+  list-style:none;
+}
+.tin-moi-body ul li{
+  text-align: justify;
+  padding-right:5px;
+}
+.tin-moi-body ul li:before {
+  content: "•"; 
+  padding-right: 8px;
+  color: blue; 
+}
+.tin-moi-body ul li a{
+  color:rgb(18, 18, 143);
+  font-weight: bold;
+}
+/* tuy chinh thanh cuon scroll bar */
+.tin-moi-body::-webkit-scrollbar {
+  width: 7px;
+  background-color: black;
+} 
+.tin-moi-body::-webkit-scrollbar-thumb {
+background-color:  rgb(172, 169, 169);
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+.tin-moi-body::-webkit-scrollbar-track {
+-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+background-color: rgb(255, 253, 253);
+}
+/* ******************* BOX-TIN ****************/
+.box-tin-body{
+  padding:5px;
+}
+.box-body-main{}
+.box-body-left{
+  padding:10px 5px 10px 0px;
+}
+.box-body-left img{
+  width:100%;
+}
+.box-body-right{
+  padding:10px 5px 10px 5px;
+  text-align: justify;
+}
+.right-title a{
+  font-weight: bold;
+  color: #355797;
+}
+.ngay{
+  font-style:italic;
+  color:rgba(96, 97, 97, 0.918);
+  font-size: 0.8em;
+}
+.body-bottom{}
+
+.p-link{
+  background: #b92222;
+  text-indent: 10px;
+}
+.p-link a{
+  font-weight: bold;
+  color: #355797;
+}
+/*************** module-right **************/
+.module-right{
+  padding-left:0;
 }
