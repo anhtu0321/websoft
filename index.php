@@ -13,9 +13,11 @@
             <?php include("include/banner.php");?>
             <?php include("include/menu.php");?>
             <?php include("include/main.php");?>
-            <?php include("include/footer.php");?>
         </div>
-    >
+            <div class="container-fluid">
+        <?php include("include/footer.php");?>
+</div>
+ 
 </body>
 <script src="style/bootstrap341/js/jquery.js"></script>
 <script src="style/bootstrap341/js/popper.min.js"></script>

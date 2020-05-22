@@ -198,6 +198,7 @@
 /*/****************  molude-center /**************** */
 /**************** * TIN MOI**********/
 .module-center{
+  background: #FFFFFF;
   padding:0px 5px 5px 0;
 }
 .title{
@@ -251,12 +252,16 @@ background-color:  rgb(172, 169, 169);
 background-color: rgb(255, 253, 253);
 }
 /* ******************* BOX-TIN ****************/
+.box{
+  padding:0 5px 0 0;
+}
 .box-tin-body{
   padding:5px;
+  background: #FFFFFF;
 }
 .box-body-main{}
 .box-body-left{
-  padding:10px 5px 10px 0px;
+  padding:10px 5px 10px 5px;
 }
 .box-body-left img{
   width:100%;
@@ -274,10 +279,11 @@ background-color: rgb(255, 253, 253);
   color:rgba(96, 97, 97, 0.918);
   font-size: 0.8em;
 }
-.body-bottom{}
-
+.body-bottom{
+  
+}
 .p-link{
-  background: #b92222;
+  background: url(../img/hv-more-news.jpg) no-repeat center left;
   text-indent: 10px;
 }
 .p-link a{
@@ -287,4 +293,27 @@ background-color: rgb(255, 253, 253);
 /*************** module-right **************/
 .module-right{
   padding-left:0;
+}
+
+.img-right{
+  margin-bottom:5px;
+}
+/*************** FOOTER **************/
+.footer-bar{
+  background: #1495e0;
+  height:35px;
+  margin-top: 35px;
+}
+.footer-info{
+  text-align: center;
+  padding-top:25px;
+  padding-bottom:25px;
+  margin-bottom:25px;
+  background: bisque;
+}
+.footer-info p{
+  line-height: 15px;
+}
+.footer-info p:first-child{
+  font-weight: bold;
 }

@@ -82,14 +82,13 @@
 				<img src="img/unnamed.png" width="100%"/>
 			</div>
 		</div>
-		<div class="col-sm-12 no-padding">
-			<div class="border margin-right-5 margin-bottom-5">
-                <div class="title">
+		<div class="col-sm-12 box">
+			<div class="col-sm-12 no-padding border margin-right-5 margin-bottom-5">
+                <div class="col-sm-12 title">
                     <a>Hoạt động Công an tỉnh</a>
                 </div>
-                <div class="box-tin-body">
+                <div class="col-sm-12 no-padding box-tin-body">
 					<div class="col-sm-12 no-padding box-body-main">
-						
 						<div class="col-sm-3 margin-bottom-5 box-body-left">
 							<a href="#"><img src="http://hungyen.gov.vn/portal/Photos/2020-05/ee5e06c6ca15cebdNTM_18_5.jpg"></a>
 						</div>
@@ -98,8 +97,7 @@
 							<p class="right-info">Ngày 15.5, Đoàn công tác của Văn phòng Điều phối nông thôn mới (NTM) Trung ương đã về khảo sát thực tế tình hình xây dựng NTM tại huyện Phù Cừ. </p>
 						</div> 
 					</div>
-							
-					<div class="body-bottom">
+					<div class="col-sm-12 body-bottom">
 								
 						<p class="p-link">
 							<a href="#">Hưng Yên: Đã bắt đầu thu hoạch nhãn chín sớm</a><span class="ngay"> (16/05/2020)</span>
@@ -125,14 +123,14 @@
                 </div>
             </div>
 		</div>
-		<div class="col-sm-12 no-padding">
-			<div class="border margin-right-5 margin-bottom-5">
-                <div class="title">
-                    <a>Tin ANTT trong tỉnh</a>
-                </div>
-                <div class="box-tin-body">
+		
+		<div class="col-sm-12 box">
+			<div class="col-sm-12 no-padding border margin-right-5 margin-bottom-5">
+				<div class="col-sm-12 title">
+					<a>Tin ANTT trong tỉnh</a>
+				</div>
+				<div class="col-sm-12 no-padding box-tin-body">
 					<div class="col-sm-12 no-padding box-body-main">
-						
 						<div class="col-sm-3 margin-bottom-5 box-body-left">
 							<a href="#"><img src="http://hungyen.gov.vn/portal/Photos/2020-05/68df6265d6f46a7dCovid-19_20_5.jpg"></a>
 						</div>
@@ -141,12 +139,11 @@
 							<p class="right-info">Phát biểu tại Khoá họp thứ 73 Đại hội đồng Tổ chức Y tế Thế giới (WHO) được tổ chức trực tuyến lần đầu tiên trong lịch sử tổ chức này, Thủ tướng Nguyễn Xuân Phúc cho rằng, hơn bao giờ hết, các nước... </p>
 						</div> 
 					</div>
-							
-					<div class="body-bottom">
+					<div class="col-sm-12 body-bottom">
 								
-					<p class="p-link">
-						<a href="#">Trọng thể Lễ kỷ niệm 130 năm Ngày sinh Chủ tịch Hồ Chí Minh</a><span class="ngay"> (19/05/2020)</span>
-					</p>
+						<p class="p-link">
+							<a href="#">Trọng thể Lễ kỷ niệm 130 năm Ngày sinh Chủ tịch Hồ Chí Minh</a><span class="ngay"> (19/05/2020)</span>
+						</p>
 										
 						<p class="p-link">
 							<a href="#">UBTVQH cho ý kiến về việc chuẩn bị kỳ họp thứ 9, Quốc hội khóa XIV</a><span class="ngay"> (15/05/2020)</span>
@@ -165,8 +162,8 @@
 						</p>			
 						
 					</div>
-                </div>
-            </div>
+				</div>
+			</div>
 		</div>
     </div>
     <div class="no-padding main-right">
@@ -312,8 +309,32 @@
                 </form>
 				
 			</div>
-			<div class="border 6bacho">
+			<div class="border img-right">
                 <img src="img/6bacho.png" width="100%"/>
+			</div>
+			<div class="border img-right">
+                <img src="img/banner.jpg" width="100%"/>
+			</div>
+			<div class="border img-right">
+                <img src="img/CACICACHHANHCHINH.jpg" width="100%"/>
+			</div>
+			<div class="border img-right">
+                <img src="img/thutuc.jpg" width="100%"/>
+			</div>
+			<div class="border img-right">
+                <img src="img/truynanew.png" width="100%"/>
+			</div>
+			<div class="border img-right">
+                <img src="img/vanban12.jpg" width="100%"/>
+			</div>
+			<div class="border img-right">
+                <img src="img/banner1.png" width="100%"/>
+			</div>
+			<div class="border img-right">
+                <img src="img/banner2.png" width="100%"/>
+			</div>
+			<div class="border img-right">
+                <img src="img/cand-int.jpg" width="100%"/>
 			</div>
         </div>
     </div>
