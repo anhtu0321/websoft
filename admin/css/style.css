@@ -1,0 +1,30 @@
+/* TÙY CHỌN CHUNG */
+.no-padding{
+    padding:0;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+  .list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+.banner{
+    min-height:150px;
+    background: #ceb97f;
+}
+.menu{
+    background: #122311;
+    min-height: 500px;
+}
+.main{
+    background: #97db93;
+    min-height: 500px;
+}
+.footer{
+    background: #2b4619;
+    min-height: 150px;
+}
