@@ -1,4 +1,12 @@
-<?php include("config.php"); ?>
+<?php 
+    include("config.php"); 
+    $sql = "select * from chucnang order by thutu ASC";
+    $tbchucnang = mysql_query($sql);
+    $mangchucnang = array();
+    while($rs = mysql_fetch_array($tbchucnang)){
+        $mangchucnang[] = array('id'=>$rs["id"],'tenmenu'=>$rs["tenmenu"],'tenthumuc'=>$rs["tenthumuc"],'thutu'=>$rs["thutu"],'trangthai'=>$rs["trangthai"]);
+    }
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>

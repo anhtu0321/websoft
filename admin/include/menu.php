@@ -1,13 +1,14 @@
 
 <div class="col-sm-2 menu no-padding">
-    
-    <ul class="list-group">
-        <a class="list-group-item list-group-item-info" href="#">Quản lý tin tức</a>
-        <a class="list-group-item list-group-item-info" href="#">Quản lý Mục tin</a>
-        <a class="list-group-item list-group-item-info" href="#">Quản lý Báo cáo ngày</a>
-        <a class="list-group-item list-group-item-info" href="#">Quản lý Phần mềm</a>
-        <a class="list-group-item list-group-item-info" href="#">Trang giới thiệu</a>
-        <a class="list-group-item list-group-item-info" href="#">Quản lý tài khoản</a>
+    <ul class="list-group"> 
+    <?php 
+        foreach ($mangchucnang as $key => $value){
+            if($value["trangthai"]==1){
+        ?>
+            <a class="list-group-item list-group-item-info" href="index.php?form=<?php echo $value["id"]?>"><?php echo $value["tenmenu"]?></a>
+        <?
+            }
+        }
+    ?>
     </ul>
-    
 </div>

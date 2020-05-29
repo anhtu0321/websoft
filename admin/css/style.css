@@ -17,14 +17,22 @@
     background: #ceb97f;
 }
 .menu{
-    background: #122311;
+    background: #f6f8f6;
     min-height: 500px;
 }
 .main{
-    background: #97db93;
+    background: #f1f0f0;
     min-height: 500px;
 }
 .footer{
     background: #2b4619;
     min-height: 150px;
+}
+/* TÙY CHỌN CỤ THỂ */
+.title{
+    text-align: center;
+    font-weight: bold;
+    font-size:1.5em;
+    color: rgb(4, 112, 31);
+    padding:10px 0;
 }
