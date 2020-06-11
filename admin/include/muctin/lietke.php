@@ -16,14 +16,14 @@
         <tbody>
             <?php 
                 $sql = "select id, tenmuctin, thutu, trangthai from muctin order by thutu asc";
-                $tb_muctin = mysql_query($sql);
-                while($rs = mysql_fetch_array($tb_muctin)){
+                $tb_muctin = mysql_query($sql); $i=0;
+                while($rs = mysql_fetch_array($tb_muctin)){$i++;
                 ?>
                 <?php
                     if ($id == $rs["id"]){ echo "<tr class='success'>";
                     }else{echo "<tr>";}
                 ?>
-                    <td><?php echo ($key+1); ?></td>
+                    <td><?php echo $i; ?></td>
                     <td><?php echo $rs["tenmuctin"]; ?></td>
                     <td><?php echo $rs["thutu"]; ?></td>
                     <td>

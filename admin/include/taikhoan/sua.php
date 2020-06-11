@@ -1,6 +1,6 @@
 <?php
 $id = $_GET["id"];
-$sql = "select username from users where id = '$id'";
+$sql = "select username, fullname from users where id = '$id'";
 $tb = mysql_query($sql);
 $rs = mysql_fetch_array($tb);
 ?>
@@ -14,6 +14,10 @@ $rs = mysql_fetch_array($tb);
         <div class="form-group form-group-sm">
             <input type="password" class="form-control" name="password" placeholder="Mật khẩu">
         </div>
+        <div class="form-group form-group-sm">
+            <input type="text" class="form-control" name="fullname" value="<?php echo $rs["fullname"]?>" placeholder="Họ tên">
+        </div>
+
         <button type="submit" name="sua" class="btn btn-primary">Sửa Tài khoản</button>
         <button type="submit" name="xoa" class="btn btn-primary" onclick="return confirm('Muốn xóa thật à?');">Xóa Tài khoản</button>
         <div class="form-group form-group-sm">

@@ -4,17 +4,18 @@ $form = $_GET["form"];
 $id = $_GET["id"];
 $username = $_POST["username"];
 $password = $_POST["password"];
+$fullname = $_POST["fullname"];
 
 if(isset($_POST["them"])){
-    $sql = "insert into users(username, password) values('$username','$password')";
+    $sql = "insert into users(username, password, fullname) values('$username','$password','$fullname')";
     mysql_query($sql);
     header("location: ../../index.php?form=".$form);
 }
 if(isset($_POST["sua"])){
     if($password == ""){
-        $sql = "update users set username = '$username' where id = '$id'";
+        $sql = "update users set username = '$username', fullname = '$fullname' where id = '$id'";
     }else{
-        $sql = "update users set username = '$username', password = '$password' where id = '$id'";
+        $sql = "update users set username = '$username', fullname = '$fullname', password = '$password' where id = '$id'";
     }
     mysql_query($sql);
     header("location: ../../index.php?form=".$form."&act=edit&id=".$id);

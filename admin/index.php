@@ -1,11 +1,16 @@
 <?php 
-    include("config.php"); 
-    $sql = "select * from chucnang order by thutu ASC";
-    $tbchucnang = mysql_query($sql);
-    $mangchucnang = array();
-    while($rs = mysql_fetch_array($tbchucnang)){
-        $mangchucnang[] = array('id'=>$rs["id"],'tenmenu'=>$rs["tenmenu"],'tenthumuc'=>$rs["tenthumuc"],'thutu'=>$rs["thutu"],'trangthai'=>$rs["trangthai"]);
+    session_start();
+    if($_SESSION["user_huye_id"] == ""){header("location: login.php");}
+    else{
+        include("config.php"); 
+        $sql = "select * from chucnang order by thutu ASC";
+        $tbchucnang = mysql_query($sql);
+        $mangchucnang = array();
+        while($rs = mysql_fetch_array($tbchucnang)){
+            $mangchucnang[] = array('id'=>$rs["id"],'tenmenu'=>$rs["tenmenu"],'tenthumuc'=>$rs["tenthumuc"],'thutu'=>$rs["thutu"],'trangthai'=>$rs["trangthai"]);
+        }
     }
+    
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +21,8 @@
 </head>
 <link href="../style/bootstrap341/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="css/style.css" rel="stylesheet" type="text/css">
+<script src="ckeditor/ckeditor.js" type="text/javascript"></script>
+<script src="ckfinder/ckfinder.js" type="text/javascript"></script>
 <body>
     
     <div class="container">
