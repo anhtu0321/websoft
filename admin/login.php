@@ -42,7 +42,7 @@ session_start(); ?>
      if(isset($_POST["submit"])){
           $username = $_POST["username"];
           $password = $_POST["password"];
-          $sql = "select 1 from users where (username = '$username') and (password = '$password')";
+          $sql = "select * from users where (username = '$username') and (password = '$password')";
           $tb = mysql_query($sql);
           $num = mysql_num_rows($tb);
           if($num == 0){?>

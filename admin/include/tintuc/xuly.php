@@ -1,5 +1,6 @@
 <?php 
 include("../../config.php");
+session_start();
 $form = $_GET["form"];
 $id = $_GET["id"];
 $muctin = $_POST["muctin"];
@@ -8,8 +9,8 @@ $noidung = $_POST["noidung"];
 $tenfile = $_FILES["anh"]["name"];
 $noibat = $_POST["noibat"];
 $trangthai = $_POST["trangthai"];
-$ngaynhap = date("m-d-Y");
-$nguoinhap = $_POST["nguoinhap"];
+$ngaynhap = date("Y-m-d");
+$nguoinhap = $_SESSION["user_huye_name"];
 $time = date("hisdmY");
 $filename = $_GET["filename"];
 // xử lý tên file
@@ -28,9 +29,9 @@ if(isset($_POST["sua"])){
     if($tenfile != "" and file_exists("../../../imguploads/".$filename)){
         unlink("../../../imguploads/".$filename);
         copy($_FILES["anh"]["tmp_name"],$dichcopy);
-        $sql = "update tintuc set muctin = '$muctin', tieude = '$tieude', noidung = '$noidung',anh = '$anh',noibat = '$noibat',trangthai = '$trangthai', ngaynhap = '$ngaynhap', nguoinhap = '$nguoinhap' where id = '$id'";
+        $sql = "update tintuc set muctin = '$muctin', tieude = '$tieude', noidung = '$noidung',anh = '$anh',noibat = '$noibat',trangthai = '$trangthai', nguoinhap = '$nguoinhap' where id = '$id'";
     }else{
-        $sql = "update tintuc set muctin = '$muctin', tieude = '$tieude', noidung = '$noidung',noibat = '$noibat',trangthai = '$trangthai', ngaynhap = '$ngaynhap', nguoinhap = '$nguoinhap' where id = '$id'";
+        $sql = "update tintuc set muctin = '$muctin', tieude = '$tieude', noidung = '$noidung',noibat = '$noibat',trangthai = '$trangthai', nguoinhap = '$nguoinhap' where id = '$id'";
     }
     mysql_query($sql);
     header("location: ../../index.php?form=".$form."&act=edit&id=".$id);
