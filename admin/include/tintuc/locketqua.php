@@ -1,16 +1,16 @@
 <?php 
-$muctin = $_GET["muctin"];
-$nguoinhap = $_GET["nguoinhap"];
-$tungay = $_GET["tungay"];
-$denngay = $_GET["denngay"];
-
+$muctin = $_POST["muctin"];
+$nguoinhap = $_POST["nguoinhap"];
+$tungay = $_POST["tungay"];
+$denngay = $_POST["denngay"];
+$trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
 ?>
 <div class="col-sm-12 col-md-12 col-lg-12">
     <button class="btn btn-primary btn-sm" onclick = "window.location.href='index.php?form=<?php echo $form;?>&act=add'">Thêm mới tin tức</button>
 </div>
 <div class="col-sm-12 col-md-12 col-lg-12">
     Danh sách tin
-    <form action="index.php?form=<?php echo $form?>&muctin=<?php echo $muctin?>&nguoinhap=<?php echo $nguoinhap?>&tungay=<?php echo $tungay?>&denngay=<?php echo $denngay?>" method="POST" class="form-inline" role="form">
+    <form action="index.php?form=<?php echo $form?>" method="POST" class="form-inline" role="form">
         <div class="form-group">
             Mục tin: 
                 <select name="muctin" style="width:200px;">
@@ -61,8 +61,8 @@ $denngay = $_GET["denngay"];
         </div>
         <button type="submit" class="btn btn-primary btn-sm">Xem</button>
     </form>
-    
 </div>
+<!-- Tính toán thông số để phân trang -->
 <?php 
     // Tính tổng số bản ghi
     $sql = "select count(id) as tong from tintuc where trangthai = 1 and ngaynhap between '$tungay' and '$denngay'";
@@ -72,22 +72,23 @@ $denngay = $_GET["denngay"];
     $rstong = mysql_fetch_array($tbtong);
     $tong = $rstong["tong"];
     // Các thông số để phân trang
-    $trang = $_GET["trang"]; if($trang = ""){$trang = 1;}
-    $num = 10;
+    $num = 2;
     $sotrang = ceil($tong/$num);
-    $batdau = ($trang-1)*$num;
+    $vitribatdau = ($trang-1)*$num;
     //Lấy dữ liệu trong cơ sở dữ liệu
 
     $sqltintuc = "select id, muctin, tieude, noidung, anh, noibat, trangthai, nguoinhap, ngaynhap from tintuc where trangthai = 1 and ngaynhap between '$tungay' and '$denngay'";
     if ($muctin != ""){$sqltintuc = $sqltintuc." and muctin ='$muctin'"; }
     if ($nguoinhap != ""){$sqltintuc = $sqltintuc." and nguoinhap ='$nguoinhap'"; }
-    $sqlltintuc = $sqltintuc."order by id DESC limit $batdau,$num";
+    $sqltintuc = $sqltintuc." order by id DESC limit $vitribatdau,$num";
     $tbtintuc = mysql_query($sqltintuc);
     
 ?>
+<!-- Hết -->
 <?php 
     if($tong > 0){
 ?>
+<!-- Hiển thị danh sách tin tức -->
     <div class="col-sm-12 col-md-12 col-lg-12 margin-top-10">
         <table class="table table-condensed table-hover">
             <thead>
@@ -105,13 +106,14 @@ $denngay = $_GET["denngay"];
             </thead>
             <tbody>
                 <?php 
-                    while($rs = mysql_fetch_array($tbtintuc)){$i++;
+                    $sothutu = 0;
+                    while($rs = mysql_fetch_array($tbtintuc)){$sothutu++;
                     ?>
                     <?php
                         if ($id == $rs["id"]){ echo "<tr class='success'>";
                         }else{echo "<tr>";}
                     ?>
-                        <td><?php echo $i; ?></td>
+                        <td><?php echo $sothutu; ?></td>
                         <td><?php echo $rs["tieude"]; ?></td>
                         <td><?php echo $rs["noidung"]; ?></td>
                         <td><img src="../imguploads/<?php echo $rs['anh']; ?>" width="100px"></td>
@@ -136,6 +138,7 @@ $denngay = $_GET["denngay"];
             </tbody>
         </table>
     </div>
+<!-- Hết -->
 <?php
     }else{
 ?>
@@ -146,21 +149,50 @@ $denngay = $_GET["denngay"];
     }
 ?>
 
-    <div class="trang">
-        <ul>
-            <li><button type="submit" href="index.php?form=<?php echo $form;?>&trang=1"> First <input type="text" value ="1" hidden="true"> </button></li>
-            <?
-            if($sotrang <= 10){$batdau=1;$ketthuc=$sotrang;}
-            else {
-                if($trang<5){$batdau=1;$ketthuc=10;}
-                else if($trang+5 > $sotrang){$batdau=$sotrang-9;$ketthuc=$sotrang;}
-                else{$batdau=$trang-4;$ketthuc=$trang+5;}
-            }
-            for($i=$batdau; $i<=$ketthuc; $i++){?>
-                <? if($trang == $i){echo "<li class='liactive'>";}else{echo "<li>";}?><a href="index.php?form=<?php echo $form;?>&trang=<? echo $i;?>"><? echo $i;?></a></li>
-            <? }?>
-            <li><a href="index.php?form=<?php echo $form;?>&trang=<?php echo $sotrang?>"> End </a></li>
-        </ul>
-    </div>
-
+<div class="trang">
+    <ul>
+        <li>
+            <form action = "index.php?form=<?php echo $form?>" method="POST"> 
+                <button type="submit"> First 
+                    <input type="text" name = "trang" value ="1" hidden="true"> 
+                    <input type="text" name = "muctin" value ="<?php echo $muctin;?>" hidden="true"> 
+                    <input type="text" name = "nguoinhap" value ="<?php echo $nguoinhap;?>" hidden="true"> 
+                    <input type="text" name = "tungay" value ="<?php echo $tungay;?>" hidden="true"> 
+                    <input type="text" name = "denngay" value ="<?php echo $denngay;?>" hidden="true"> 
+                </button>
+            </form>
+        </li>
+        <?
+        if($sotrang <= 10){$batdau=1;$ketthuc=$sotrang;}
+        else {
+            if($trang<5){$batdau=1;$ketthuc=10;}
+            else if($trang+5 > $sotrang){$batdau=$sotrang-9;$ketthuc=$sotrang;}
+            else{$batdau=$trang-4;$ketthuc=$trang+5;}
+        }
+        for($i=$batdau; $i<=$ketthuc; $i++){?>
+            <? if($trang == $i){echo "<li class='liactive'>";}else{echo "<li>";}?>
+                <form action = "index.php?form=<?php echo $form?>" method="POST"> 
+                    <button type="submit"> <? echo $i;?> 
+                        <input type="text" name = "trang" value ="<? echo $i;?>" hidden="true"> 
+                        <input type="text" name = "muctin" value ="<?php echo $muctin;?>" hidden="true"> 
+                        <input type="text" name = "nguoinhap" value ="<?php echo $nguoinhap;?>" hidden="true"> 
+                        <input type="text" name = "tungay" value ="<?php echo $tungay;?>" hidden="true"> 
+                        <input type="text" name = "denngay" value ="<?php echo $denngay;?>" hidden="true"> 
+                    </button>
+                </form>
+            </li>
+        <? }?>
+        <li>
+            <form action = "index.php?form=<?php echo $form?>" method="POST"> 
+                <button type="submit"> End 
+                    <input type="text" name = "trang" value ="<? echo $sotrang;?>" hidden="true"> 
+                    <input type="text" name = "muctin" value ="<?php echo $muctin;?>" hidden="true"> 
+                    <input type="text" name = "nguoinhap" value ="<?php echo $nguoinhap;?>" hidden="true"> 
+                    <input type="text" name = "tungay" value ="<?php echo $tungay;?>" hidden="true"> 
+                    <input type="text" name = "denngay" value ="<?php echo $denngay;?>" hidden="true"> 
+                </button>
+            </form>
+        </li>
+    </ul>
+</div>
 
