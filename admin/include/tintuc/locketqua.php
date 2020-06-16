@@ -148,9 +148,9 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
 <?php
     }
 ?>
-
-<div class="trang">
-    <ul>
+<!-- Hiển thị trang -->
+<div class="col-sm-12 text-right">
+    <ul class="pagination">
         <li>
             <form action = "index.php?form=<?php echo $form?>" method="POST"> 
                 <button type="submit"> First 
@@ -170,7 +170,7 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
             else{$batdau=$trang-4;$ketthuc=$trang+5;}
         }
         for($i=$batdau; $i<=$ketthuc; $i++){?>
-            <? if($trang == $i){echo "<li class='liactive'>";}else{echo "<li>";}?>
+            <? if($trang == $i){echo "<li class='disabled'>";}else{echo "<li>";}?>
                 <form action = "index.php?form=<?php echo $form?>" method="POST"> 
                     <button type="submit"> <? echo $i;?> 
                         <input type="text" name = "trang" value ="<? echo $i;?>" hidden="true"> 
