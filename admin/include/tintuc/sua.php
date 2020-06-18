@@ -92,6 +92,7 @@ $rs = mysql_fetch_array($tb);
             <div class="col-sm-10 col-sm-offset-2">
                 <button type="submit" class="btn btn-primary" name="sua">Sửa tin tức</button>
                 <button type="submit" class="btn btn-primary" name="xoa" onclick="return confirm('Muốn xóa thật à ?');">Xóa tin tức</button>
+                <button type="button" class="btn btn-primary" onclick="window.location.href = 'index.php?form=<?php echo $form;?>'">Quay lại</button>
             </div>
         </div>
     </form>
