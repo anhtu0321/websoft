@@ -18,27 +18,44 @@ if($tenfile != ""){
     $anh = $time.$tenfile;
     $dichcopy = "../../../imguploads/".$anh;
 }else{$dichcopy="";}
+// Lấy thông tin phân quyền
+    $sqlphanquyen = "select them, sua, xoa from phanquyen where user = '$_SESSION[user_huye_id]' and form = '$form'";
+    $tbphanquyen = mysql_query($sqlphanquyen);
+    $rsphanquyen = mysql_fetch_array($tbphanquyen);
 // thực hiện thêm tin mới
 if(isset($_POST["them"])){
-    if($tenfile != ""){copy($_FILES["anh"]["tmp_name"],$dichcopy);}
-    $sql = "insert into tintuc(muctin, tieude, noidung, anh, noibat, trangthai, ngaynhap, nguoinhap) values('$muctin','$tieude','$noidung','$anh','$noibat','$trangthai','$ngaynhap','$nguoinhap')";
-    mysql_query($sql);
-    header("location: ../../index.php?form=".$form);
+    if($rsphanquyen["them"]== 1){
+        if($tenfile != ""){copy($_FILES["anh"]["tmp_name"],$dichcopy);}
+        $sql = "insert into tintuc(muctin, tieude, noidung, anh, noibat, trangthai, ngaynhap, nguoinhap) values('$muctin','$tieude','$noidung','$anh','$noibat','$trangthai','$ngaynhap','$nguoinhap')";
+        mysql_query($sql);
+        header("location: ../../index.php?form=".$form);
+    }else{
+        header("location: ../../index.php?form=".$form."&false=false");
+    }
+    
 }
 if(isset($_POST["sua"])){
-    if($tenfile != "" and file_exists("../../../imguploads/".$filename)){
-        unlink("../../../imguploads/".$filename);
-        copy($_FILES["anh"]["tmp_name"],$dichcopy);
-        $sql = "update tintuc set muctin = '$muctin', tieude = '$tieude', noidung = '$noidung',anh = '$anh',noibat = '$noibat',trangthai = '$trangthai', nguoinhap = '$nguoinhap' where id = '$id'";
+    if($rsphanquyen["sua"]== 1){
+        if($tenfile != "" and file_exists("../../../imguploads/".$filename)){
+            unlink("../../../imguploads/".$filename);
+            copy($_FILES["anh"]["tmp_name"],$dichcopy);
+            $sql = "update tintuc set muctin = '$muctin', tieude = '$tieude', noidung = '$noidung',anh = '$anh',noibat = '$noibat',trangthai = '$trangthai', nguoinhap = '$nguoinhap' where id = '$id'";
+        }else{
+            $sql = "update tintuc set muctin = '$muctin', tieude = '$tieude', noidung = '$noidung',noibat = '$noibat',trangthai = '$trangthai', nguoinhap = '$nguoinhap' where id = '$id'";
+        }
+        mysql_query($sql);
+        header("location: ../../index.php?form=".$form."&act=edit&id=".$id);
     }else{
-        $sql = "update tintuc set muctin = '$muctin', tieude = '$tieude', noidung = '$noidung',noibat = '$noibat',trangthai = '$trangthai', nguoinhap = '$nguoinhap' where id = '$id'";
+        header("location: ../../index.php?form=".$form."&false=false");
     }
-    mysql_query($sql);
-    header("location: ../../index.php?form=".$form."&act=edit&id=".$id);
 }
 if(isset($_POST["xoa"])){
-    $sql = "delete from tintuc where id = '$id'";
-    mysql_query($sql);
-    header("location: ../../index.php?form=".$form);
+    if($rsphanquyen["sua"]== 1){
+        $sql = "delete from tintuc where id = '$id'";
+        mysql_query($sql);
+        header("location: ../../index.php?form=".$form);
+    }else{
+        header("location: ../../index.php?form=".$form."&false=false");
+    }
 }
 ?>

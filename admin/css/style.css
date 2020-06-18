@@ -33,6 +33,9 @@
     background: #2b4619;
     min-height: 150px;
 }
+.false{
+  color:red;
+}
 /* TÙY CHỌN CỤ THỂ */
 .title{
     text-align: center;
