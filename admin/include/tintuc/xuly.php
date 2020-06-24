@@ -50,7 +50,7 @@ if(isset($_POST["sua"])){
     }
 }
 if(isset($_POST["xoa"])){
-    if($rsphanquyen["sua"]== 1){
+    if($rsphanquyen["xoa"]== 1){
         $sql = "delete from tintuc where id = '$id'";
         mysql_query($sql);
         header("location: ../../index.php?form=".$form);

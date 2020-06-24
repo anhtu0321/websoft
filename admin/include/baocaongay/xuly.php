@@ -15,27 +15,43 @@ if($tenfile != ""){
     $file = $time.$tenfile;
     $dichcopy = "../../../bcnuploads/".$anh;
 }else{$dichcopy="";}
+// Lấy thông tin phân quyền
+$sqlphanquyen = "select them, sua, xoa from phanquyen where user = '$_SESSION[user_huye_id]' and form = '$form'";
+$tbphanquyen = mysql_query($sqlphanquyen);
+$rsphanquyen = mysql_fetch_array($tbphanquyen);
 // thực hiện thêm tin mới
 if(isset($_POST["them"])){
-    if($tenfile != ""){copy($_FILES["file"]["tmp_name"],$dichcopy);}
-    $sql = "insert into baocaongay(tieude, noidung, file, ngaynhap, nguoinhap) values('$tieude','$noidung','$file','$ngaynhap','$nguoinhap')";
-    mysql_query($sql);
-    header("location: ../../index.php?form=".$form);
+    if($rsphanquyen["them"]== 1){
+        if($tenfile != ""){copy($_FILES["file"]["tmp_name"],$dichcopy);}
+        $sql = "insert into baocaongay(tieude, noidung, file, ngaynhap, nguoinhap) values('$tieude','$noidung','$file','$ngaynhap','$nguoinhap')";
+        mysql_query($sql);
+        header("location: ../../index.php?form=".$form);
+    }else{
+        header("location: ../../index.php?form=".$form."&false=false");
+    }
 }
 if(isset($_POST["sua"])){
-    if($tenfile != "" and file_exists("../../../bcnuploads/".$filename)){
-        unlink("../../../bcnuploads/".$filename);
-        copy($_FILES["anh"]["tmp_name"],$dichcopy);
-        $sql = "update baocaongay set tieude = '$tieude', noidung = '$noidung',file = '$file', nguoinhap = '$nguoinhap' where id = '$id'";
+    if($rsphanquyen["sua"]== 1){
+        if($tenfile != "" and file_exists("../../../bcnuploads/".$filename)){
+            unlink("../../../bcnuploads/".$filename);
+            copy($_FILES["anh"]["tmp_name"],$dichcopy);
+            $sql = "update baocaongay set tieude = '$tieude', noidung = '$noidung',file = '$file', nguoinhap = '$nguoinhap' where id = '$id'";
+        }else{
+            $sql = "update baocaongay set tieude = '$tieude', noidung = '$noidung',file = '$file', nguoinhap = '$nguoinhap' where id = '$id'";
+        }
+        mysql_query($sql);
+        header("location: ../../index.php?form=".$form."&act=edit&id=".$id);
     }else{
-        $sql = "update baocaongay set tieude = '$tieude', noidung = '$noidung',file = '$file', nguoinhap = '$nguoinhap' where id = '$id'";
+        header("location: ../../index.php?form=".$form."&false=false");
     }
-    mysql_query($sql);
-    header("location: ../../index.php?form=".$form."&act=edit&id=".$id);
 }
 if(isset($_POST["xoa"])){
-    $sql = "delete from baocaongay where id = '$id'";
-    mysql_query($sql);
-    header("location: ../../index.php?form=".$form);
+    if($rsphanquyen["xoa"]== 1){
+        $sql = "delete from tintuc where id = '$id'";
+        mysql_query($sql);
+        header("location: ../../index.php?form=".$form);
+    }else{
+        header("location: ../../index.php?form=".$form."&false=false");
+    }
 }
 ?>

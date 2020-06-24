@@ -7,6 +7,10 @@
     $tbbaocaongay = mysql_query($sql);
     $form = $_GET["form"];
     $act = $_GET["act"];
+    $false = $_GET["false"];
+    if($false == "false"){
+        include("false.php");
+    }
     if ($act == "edit"){
         include("sua.php");
     }else if($act == "add"){
