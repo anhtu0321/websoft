@@ -6,10 +6,10 @@ $denngay = $_POST["denngay"];if($denngay ==""){$denngay = date("Y-m-d");}
 $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
 ?>
 <div class="col-sm-12 col-md-12 col-lg-12">
-    <button class="btn btn-primary btn-sm" onclick = "window.location.href='index.php?form=<?php echo $form;?>&act=add'">Thêm mới Báo cáo ngày</button>
+    <button class="btn btn-primary btn-sm" onclick = "window.location.href='index.php?form=<?php echo $form;?>&act=add'">Thêm mới phần mềm</button>
 </div>
 <div class="col-sm-12 col-md-12 col-lg-12">
-    Danh sách file báo cáo ngày
+    Danh sách file phần mềm
     <form action="index.php?form=<?php echo $form?>" method="POST" class="form-inline" role="form">
         <div class="form-group">
             Người nhập: 
@@ -46,7 +46,7 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
 <!-- Tính toán thông số để phân trang -->
 <?php 
     // Tính tổng số bản ghi
-    $sql = "select count(id) as tong from baocaongay where ngaynhap between '$tungay' and '$denngay'";
+    $sql = "select count(id) as tong from phanmem where ngaynhap between '$tungay' and '$denngay'";
     if ($nguoinhap != ""){$sql = $sql." and nguoinhap ='$nguoinhap'"; }
     $tbtong = mysql_query($sql);
     $rstong = mysql_fetch_array($tbtong);
@@ -57,10 +57,10 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
     $vitribatdau = ($trang-1)*$num;
     //Lấy dữ liệu trong cơ sở dữ liệu
 
-    $sqlbaocaongay = "select id, tieude, noidung, file, nguoinhap, ngaynhap from baocaongay where ngaynhap between '$tungay' and '$denngay'";
-    if ($nguoinhap != ""){$sqlbaocaongay = $sqlbaocaongay." and nguoinhap ='$nguoinhap'"; }
-    $sqlbaocaongay = $sqlbaocaongay." order by id DESC limit $vitribatdau,$num";
-    $tbbaocaongay = mysql_query($sqlbaocaongay);
+    $sqlphanmem = "select id, tieude, noidung, file, nguoinhap, ngaynhap from phanmem where ngaynhap between '$tungay' and '$denngay'";
+    if ($nguoinhap != ""){$sqlphanmem = $sqlphanmem." and nguoinhap ='$nguoinhap'"; }
+    $sqlphanmem = $sqlphanmem." order by id DESC limit $vitribatdau,$num";
+    $tbphanmem = mysql_query($sqlphanmem);
     
 ?>
 <!-- Hết -->
@@ -73,7 +73,7 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
             <thead>
                 <tr class="danger">
                     <th>TT</th>
-                    <th>Tiêu đề</th>
+                    <th>Tên PM</th>
                     <th><div class="text-center">Người nhập</div></th>
                     <th><div class="text-center">Ngày nhập</div></th>
                     <th></th>
@@ -82,7 +82,7 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
             <tbody>
                 <?php 
                     $sothutu = 0;
-                    while($rs = mysql_fetch_array($tbbaocaongay)){$sothutu++;
+                    while($rs = mysql_fetch_array($tbphanmem)){$sothutu++;
                     ?>
                     <?php
                         if ($id == $rs["id"]){ echo "<tr class='success'>";

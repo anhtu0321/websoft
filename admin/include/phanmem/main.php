@@ -1,10 +1,10 @@
 
 <div class="col-sm-12 col-md-12 col-lg-12 title">
-    QUẢN LÝ BÁO CÁO NGÀY
+    QUẢN LÝ PHẦN MỀM
 </div>
 <?php 
-    $sql = "select id, tieude from baocaongay where trangthai = 1 order by thutu asc";
-    $tbbaocaongay = mysql_query($sql);
+    $sql = "select id, tieude from phanmem where trangthai = 1 order by thutu asc";
+    $tbphanmem = mysql_query($sql);
     $form = $_GET["form"];
     $act = $_GET["act"];
     $false = $_GET["false"];
