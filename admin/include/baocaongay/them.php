@@ -1,4 +1,3 @@
-
 <div class="col-sm-12 col-md-12 col-lg-12">
    <form action="include/baocaongay/xuly.php?form=<?php echo $form?>" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">
         <div class="form-group">
@@ -19,7 +18,7 @@
         <div class="form-group">
             <label for="" class="control-label col-sm-2">File</label>
             <div class="col-sm-10">
-                <input type="file"  name="file">
+                <input type="file" name="file">
             </div>
         </div>
         <div class="form-group">

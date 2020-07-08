@@ -1,8 +1,8 @@
 <?php 
 $muctin = $_POST["muctin"];
 $nguoinhap = $_POST["nguoinhap"];
-$tungay = $_POST["tungay"];
-$denngay = $_POST["denngay"];
+$tungay = $_POST["tungay"]; if($tungay ==""){$tungay = date("Y-m-d");}
+$denngay = $_POST["denngay"];if($denngay ==""){$denngay = date("Y-m-d");}
 $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
 ?>
 <div class="col-sm-12 col-md-12 col-lg-12">

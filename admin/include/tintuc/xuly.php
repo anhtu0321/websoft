@@ -36,8 +36,10 @@ if(isset($_POST["them"])){
 }
 if(isset($_POST["sua"])){
     if($rsphanquyen["sua"]== 1){
-        if($tenfile != "" and file_exists("../../../imguploads/".$filename)){
-            unlink("../../../imguploads/".$filename);
+        if($tenfile != ""){
+            if(file_exists("../../../imguploads/".$filename)){
+                unlink("../../../imguploads/".$filename);
+            }
             copy($_FILES["anh"]["tmp_name"],$dichcopy);
             $sql = "update tintuc set muctin = '$muctin', tieude = '$tieude', noidung = '$noidung',anh = '$anh',noibat = '$noibat',trangthai = '$trangthai', nguoinhap = '$nguoinhap' where id = '$id'";
         }else{
@@ -51,6 +53,9 @@ if(isset($_POST["sua"])){
 }
 if(isset($_POST["xoa"])){
     if($rsphanquyen["xoa"]== 1){
+        if(file_exists("../../../imguploads/".$filename)){
+            unlink("../../../imguploads/".$filename);
+        }
         $sql = "delete from tintuc where id = '$id'";
         mysql_query($sql);
         header("location: ../../index.php?form=".$form);

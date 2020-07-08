@@ -13,7 +13,7 @@ $filename = $_GET["filename"];
 // xử lý tên file
 if($tenfile != ""){
     $file = $time.$tenfile;
-    $dichcopy = "../../../bcnuploads/".$anh;
+    $dichcopy = "../../../bcnuploads/".$file;
 }else{$dichcopy="";}
 // Lấy thông tin phân quyền
 $sqlphanquyen = "select them, sua, xoa from phanquyen where user = '$_SESSION[user_huye_id]' and form = '$form'";
@@ -32,12 +32,14 @@ if(isset($_POST["them"])){
 }
 if(isset($_POST["sua"])){
     if($rsphanquyen["sua"]== 1){
-        if($tenfile != "" and file_exists("../../../bcnuploads/".$filename)){
-            unlink("../../../bcnuploads/".$filename);
-            copy($_FILES["anh"]["tmp_name"],$dichcopy);
+        if($tenfile != ""){
+            if(file_exists("../../../bcnuploads/".$filename)){
+                unlink("../../../bcnuploads/".$filename);
+            } 
+            copy($_FILES["file"]["tmp_name"],$dichcopy);
             $sql = "update baocaongay set tieude = '$tieude', noidung = '$noidung',file = '$file', nguoinhap = '$nguoinhap' where id = '$id'";
         }else{
-            $sql = "update baocaongay set tieude = '$tieude', noidung = '$noidung',file = '$file', nguoinhap = '$nguoinhap' where id = '$id'";
+            $sql = "update baocaongay set tieude = '$tieude', noidung = '$noidung', nguoinhap = '$nguoinhap' where id = '$id'";
         }
         mysql_query($sql);
         header("location: ../../index.php?form=".$form."&act=edit&id=".$id);
@@ -47,7 +49,10 @@ if(isset($_POST["sua"])){
 }
 if(isset($_POST["xoa"])){
     if($rsphanquyen["xoa"]== 1){
-        $sql = "delete from tintuc where id = '$id'";
+        if(file_exists("../../../bcnuploads/".$filename)){
+            unlink("../../../bcnuploads/".$filename);
+        }
+        $sql = "delete from baocaongay where id = '$id'";
         mysql_query($sql);
         header("location: ../../index.php?form=".$form);
     }else{
