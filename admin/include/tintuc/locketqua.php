@@ -72,7 +72,7 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
     $rstong = mysql_fetch_array($tbtong);
     $tong = $rstong["tong"];
     // Các thông số để phân trang
-    $num = 2;
+    $num = 10;
     $sotrang = ceil($tong/$num);
     $vitribatdau = ($trang-1)*$num;
     //Lấy dữ liệu trong cơ sở dữ liệu

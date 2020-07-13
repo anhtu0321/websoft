@@ -1,3 +1,13 @@
+<?php 
+session_start();
+include("admin/config.php");
+$sql = "select id, tenmuctin from muctin where trangthai = 1 order by thutu ASC";
+$tbmuctin = mysql_query($sql);
+$mangmuctin = array();
+while($rsmuctin = mysql_fetch_array($tbmuctin)){
+    $mangmuctin[] = array('id' => $rsmuctin["id"], 'tenmuctin' => $rsmuctin["tenmuctin"]); 
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
