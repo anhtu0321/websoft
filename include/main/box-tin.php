@@ -7,7 +7,7 @@ foreach($mangmuctin as $value){
     <div class="col-sm-12 box">
         <div class="col-sm-12 no-padding border margin-right-5 margin-bottom-5">
             <div class="col-sm-12 title">
-                <a><?php echo $value["tenmuctin"];?></a>
+                <a href="index.php?view=muctin&id=<?php echo $value['id'];?>"><?php echo $value["tenmuctin"];?></a>
             </div>
 
             <div class="col-sm-12 no-padding box-tin-body">

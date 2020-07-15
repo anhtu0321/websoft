@@ -16,7 +16,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
-                <li><a href="#"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
+                <li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
                     <li><a href="#">Giới thiệu</a></li>
                     <li><a href="#">Hoạt động CAT</a></li>
                     <li><a href="#">Tin ANTT trong tỉnh</a></li>
