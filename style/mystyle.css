@@ -22,6 +22,21 @@
   padding:0px 5px !important;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.5);
 }
+@media (min-width: 768px) {
+  .container {
+    width: 650px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 850px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1050px;
+  }
+}
 /************ Xử lý top vien xanh ****************/
 .top{
   background:url(../img/vien-top-xanh.png) no-repeat left center;
@@ -259,10 +274,10 @@ background-color: rgb(255, 253, 253);
   padding:5px;
   background: #FFFFFF;
 }
-.box-body-main{}
 .box-body-left{
   padding:10px 5px 10px 5px;
 }
+
 .box-body-left img{
   width:100%;
 }
@@ -279,9 +294,6 @@ background-color: rgb(255, 253, 253);
   color:rgba(96, 97, 97, 0.918);
   font-size: 0.8em;
 }
-.body-bottom{
-  
-}
 .p-link{
   background: url(../img/hv-more-news.jpg) no-repeat center left;
   text-indent: 10px;
@@ -289,6 +301,29 @@ background-color: rgb(255, 253, 253);
 .p-link a{
   font-weight: bold;
   color: #355797;
+}
+/* ******************* CHI TIET - TIN ****************/
+.chi-tiet-tin{
+  background: #FFFFFF;
+  padding:0 10px 0 0;
+  box-sizing: border-box;
+}
+.muctin{
+  border-bottom: 2px solid #b92222;
+}
+.muctin a{
+  font-weight: bold;
+  color: #b92222;
+  font-size:1.3em;
+  height:40px;
+  line-height:40px;
+}
+.tieude{
+  font-weight: bold;
+  color: #355797;
+  font-size:1.3em;
+  height:30px;
+  line-height:30px;
 }
 /*************** module-right **************/
 .module-right{
