@@ -325,6 +325,11 @@ background-color: rgb(255, 253, 253);
   height:30px;
   line-height:30px;
 }
+.ngaynhap{
+  margin-top:-10px;
+  font-size:0.9em;
+  color: #808080;
+}
 /*************** module-right **************/
 .module-right{
   padding-left:0;
