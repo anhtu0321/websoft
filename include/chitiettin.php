@@ -6,13 +6,12 @@ $rs = mysql_fetch_array($tb);
 ?>
 <div class = "col-sm-12 chi-tiet-tin">
     <div class="col-sm-12 no-padding">
-        <p class="muctin"><a href="index.php?view=muctin&id=<?php echo $rs["id"];?>"><?php echo $rs["tenmuctin"];?></a></p>
+        <p class="tdmuctin"><a href="index.php?view=muctin&id=<?php echo $rs["id"];?>"><?php echo $rs["tenmuctin"];?></a></p>
     </div>  
     <div class="col-sm-12 no-padding">
         <p class="tieude"><?php echo $rs["tieude"];?></p>
     </div>
-    <div class="col-sm-12 no-padding">
+    <div class="col-sm-12">
         <?php echo $rs["noidung"];?>
     </div>
 </div>
-
