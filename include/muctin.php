@@ -15,8 +15,13 @@
     // lấy cơ sở dữ liệu
     $sql = "select id,tieude,noidung,anh,ngaynhap from tintuc where muctin = '$id' order by id DESC limit $vitribatdau,$num";
     $tb = mysql_query($sql);
+    $sqlmt = "select id,tenmuctin from muctin where id = '$id' ";
+    $tbmt = mysql_query($sqlmt);
+    $rsmt = mysql_fetch_array($tbmt);
 ?>
-<div class="col-sm-12 muctin no-padding">
+<div class="col-sm-12 muctin no-padding chi-tiet-tin">
+    <div class="col-sm-12 no-padding">
+        <p class="tdmuctin"><a href="index.php?view=muctin&id=<?php echo $rsmt["id"];?>"><span class="glyphicon glyphicon-th"></span> <?php echo $rsmt["tenmuctin"];?></a></p>
     <?php 
         $i=0;
         while($rs = mysql_fetch_array($tb)){ $i+=1;
@@ -27,7 +32,7 @@
                     <img src = "imguploads/<?php echo $rs['anh'] ?>" width="100%"/>
                 </div>
                 <div class ="col-sm-9">
-                    <p class="tieude"><a href="index.php?view=chitiet&id=<?php echo $rs['id'];?>"><?php echo $i." ".$rs['tieude']?></a></p>
+                    <p class="tieude"><a href="index.php?view=chitiet&id=<?php echo $rs['id'];?>"><?php echo $rs['tieude']?></a></p>
                     <p class="tomtat">
                         <?php 
                             $tomtat = substr($rs["noidung"], 0, 300);
@@ -47,6 +52,7 @@
     <?php
         }
     ?>
+    </div>
 </div>
 <?php 
     $muctin = $_POST["muctin"];

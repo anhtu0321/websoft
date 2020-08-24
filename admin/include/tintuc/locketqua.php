@@ -115,7 +115,19 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
                     ?>
                         <td><?php echo $sothutu; ?></td>
                         <td><?php echo $rs["tieude"]; ?></td>
-                        <td><?php echo $rs["noidung"]; ?></td>
+                        <td>
+                        <?php 
+                            $tomtat = substr($rs["noidung"], 0, 300);
+                            $arr_noidung = explode(' ', $tomtat);
+                            array_pop($arr_noidung);
+                            $intomtat = "";
+                            foreach($arr_noidung as $value){
+                                $intomtat = $intomtat." ".$value;
+                            }
+                            $intomtat = $intomtat."...";
+                            echo $intomtat;
+                        ?>
+                        </td>
                         <td><img src="../imguploads/<?php echo $rs['anh']; ?>" width="100px"></td>
                         <td align="center"><?php echo $rs["noibat"]; ?></td>
                         <td align="center">

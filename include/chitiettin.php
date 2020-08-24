@@ -23,9 +23,24 @@ $rs = mysql_fetch_array($tb);
     </div>
     
     <!-- Tin cùng chuyên mục -->
-    <div class="col-sm-12 no-padding">
-        <p style="font-weight:bold;">
+<?php
+$maxid = $id + 5;
+$sqlcungmuc = "select id, tieude, muctin, ngaynhap from tintuc where muctin = '$rs[id]' and id <> '$id' and id <= $maxid order by id DESC limit 10";
+$tbcungmuc = mysql_query($sqlcungmuc);
+?>
+    <div class="col-sm-12 no-padding tin-chuyen-muc">
+        <p>
                 Tin cùng chuyên mục
         </p>
+        <ul>
+            <?php
+                while($rscungmuc = mysql_fetch_array($tbcungmuc)){
+            ?>
+                    <li><a href="index.php?view=chitiet&id=<?php echo $rscungmuc['id'];?>"><?php echo $rscungmuc["tieude"];?></a><br></li>
+            <?php
+                }
+            ?>
+        </ul>
+
     </div>  
 </div>

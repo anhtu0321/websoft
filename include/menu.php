@@ -18,19 +18,28 @@
                 <ul class="nav navbar-nav">
                 <li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
                     <li><a href="#">Giới thiệu</a></li>
-                    <li><a href="#">Hoạt động CAT</a></li>
-                    <li><a href="#">Tin ANTT trong tỉnh</a></li>
+<!-- Duyet csdl de lay menu -->
+<?php 
+    foreach($mangmuctin as $key => $value){
+?>
+        <li><a href="index.php?view=muctin&id=<?php echo $value['id'];?>"><?php echo $value['tenmuctin'];?></a></li>
+<?php
+    }
+?>
+                    
+                    
+<!-- Het -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phần mềm ứng dụng <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">PM gửi nhận văn bản</a></li>
-                            <li><a href="#">PM Quản lý phương tiện</a></li>
-                            <li><a href="#">PM quản lý tài sản</a></li>
-                            <li><a href="#">PM quản lý công việc</a></li>
-                            <li><a href="#">PM phân loại vụ việc</a></li>
-                            <li><a href="#">PM Văn thư</a></li>
+                            <li><a href="http://10.19.3.123/guinhanvb">PM gửi nhận văn bản</a></li>
+                            <li><a href="http://10.19.3.123/phuongtien">PM Quản lý phương tiện</a></li>
+                            <li><a href="http://10.19.3.123/taisan">PM quản lý tài sản</a></li>
+                            <li><a href="http://10.19.3.123/congviec">PM quản lý công việc</a></li>
+                            <li><a href="http://10.19.3.123/phanloaivv">PM phân loại vụ việc</a></li>
+                            <li><a href="http://10.19.3.123/congvan">PM Văn thư</a></li>
                         </ul>
-                    </li>
+                    </>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
