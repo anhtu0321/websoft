@@ -125,19 +125,9 @@
             </div>
             <div class="border login margin-bottom-5">
 				
-				<form class="form-horizontal">
-                    <div class="form-group form-group-sm margin-bottom-5">
-                        <div class="col-sm-12 margin-bottom-5">
-                            <input type="text" class="form-control input-sm" placeholder="User name">
-						</div>
-						<div class="col-sm-12 margin-bottom-5">
-                            <input type="password" class="form-control input-sm" placeholder="Password">
-						</div>
-						<div class="col-sm-12 margin-bottom-5">    
-                            <button type="submit" class="btn btn-xs btn-primary">Đăng Nhập</button>
-                        </div>
-                    </div>
-                </form>
+				<?php 
+					include("include/main/right/logouted.php");
+				?>
 				
 			</div>
 			<div class="border img-right">
