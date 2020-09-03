@@ -218,7 +218,7 @@
 }
 
 .header-new h4 a {
-    color: #cf342f;
+    color: #000000;
 }
 
 .header-new img {
@@ -317,7 +317,7 @@
 }
 
 .tin-moi-body ul li a {
-    color: darkblue;
+    color: #000000;
     font-weight: normal;
 }
 
@@ -366,7 +366,8 @@
 
 .right-title a {
     font-weight: bold;
-    color: #355797;
+    color: #000000;
+    font-size: 1.1em;
 }
 
 .ngay {
@@ -376,13 +377,13 @@
 }
 
 .p-link {
-    background: url(../img/hv-more-news.jpg) no-repeat center left;
+    background: url(../img/hv-more-news.jpg) no-repeat 0px 7px;
     text-indent: 10px;
 }
 
 .p-link a {
-    font-weight: bold;
-    color: #355797;
+    font-weight: normal;
+    color: #161616;
 }
 
 
