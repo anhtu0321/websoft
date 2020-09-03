@@ -12,6 +12,10 @@
     border: 1px solid #6DCFF6;
 }
 
+.no-bold {
+    font-weight: normal;
+}
+
 .background {
     background: rgb(254, 255, 255);
 }
@@ -23,6 +27,7 @@
 .margin-right-5 {
     margin-right: 5px;
 }
+
 .margin-left-5 {
     margin-left: 5px;
 }
@@ -312,8 +317,8 @@
 }
 
 .tin-moi-body ul li a {
-    color: rgb(54, 173, 80);
-    font-weight: bold;
+    color: darkblue;
+    font-weight: normal;
 }
 
 
@@ -403,10 +408,14 @@
 
 .tieude {
     font-weight: bold;
-    color: #2a0bdb;
-    font-size: 1.3em;
+    color: #0f0064;
+    font-size: 1.1em;
     min-height: 30px;
     line-height: 30px;
+}
+
+.tieude a {
+    color: #0f0064;
 }
 
 .ngaynhap {
@@ -543,4 +552,15 @@
 
 .tin-chuyen-muc ul li a {
     color: rgb(2, 2, 58);
+}
+
+
+/* ************************************logined */
+
+.user {
+    color: #b31c08;
+}
+
+.form-group a {
+    color: darkblue;
 }
