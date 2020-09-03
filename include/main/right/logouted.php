@@ -10,5 +10,4 @@
             <button type="button" class="btn btn-xs btn-primary" onclick="login();">Đăng Nhập</button>
         </div>
     </div>
-    <div id="show"></div>
 </form>

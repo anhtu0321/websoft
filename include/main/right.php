@@ -123,12 +123,14 @@
                 </select>
 
             </div>
-            <div class="border login margin-bottom-5">
-				
+            <div class="border login margin-bottom-5 background" id="show">
 				<?php 
-					include("include/main/right/logouted.php");
+					if($_SESSION["user_huye_id"] != ""){
+						include("include/main/right/logined.php");
+					}else{
+						include("include/main/right/logouted.php");
+					}		
 				?>
-				
 			</div>
 			<div class="border img-right">
 				<img src="img/6bacho.png" width="100%">

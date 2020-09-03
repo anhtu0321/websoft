@@ -8,6 +8,8 @@
 				include("include/chitiettin.php");
 			}else if($view == "muctin"){
 				include("include/muctin.php");
+			}else if($view == "bcn"){
+				include("include/dsbaocaongay.php");
 			}
 			else{
 				include("include/main/center-left.php");
