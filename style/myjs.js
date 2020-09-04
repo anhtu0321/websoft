@@ -27,3 +27,29 @@
 			 hostory.go(-1);*/
 		}
 	}
+	
+	function xlDoiMatKhau(){
+		http.open("post","include/xldoimatkhau.php",true);
+		http.onreadystatechange = xldoimatkhauprosess;
+		var formData = new FormData();
+		var oldpass = document.getElementById("oldpass").value;
+		var newpass = document.getElementById("newpass").value;
+		var renewpass = document.getElementById("renewpass").value;
+		if(oldpass != "" & newpass != "" & newpass == renewpass){
+			formData.append("oldpass",oldpass);
+			formData.append("newpass",newpass);
+			formData.append("renewpass",renewpass);
+			http.send(formData);
+			document.getElementById("oldpass").value="";
+			document.getElementById("newpass").value="";
+			document.getElementById("renewpass").value="";
+		} else if(oldpass ==""){alert("Bạn chưa nhập mật khẩu cũ !");
+		} else if(newpass ==""){alert("Mật khẩu mới không được trống !");
+		} else if(newpass != renewpass){alert("Nhập lại mật khẩu mới không đúng !");
+		}
+	}
+	function xldoimatkhauprosess(){
+		if(http.readyState == 4 & http.status == 200){
+			document.getElementById("tbdoipass").innerHTML = http.responseText;
+		}
+	}
