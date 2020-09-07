@@ -370,6 +370,8 @@
     font-size: 1.1em;
 }
 
+.body-bottom {}
+
 .ngay {
     font-style: italic;
     color: rgba(96, 97, 97, 0.918);
