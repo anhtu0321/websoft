@@ -10,6 +10,8 @@
 				include("include/muctin.php");
 			}else if($view == "bcn"){
 				include("include/dsbaocaongay.php");
+			}else if($view == "pmmt"){
+				include("include/dspmmaytinh.php");
 			}
 			else{
 				include("include/main/center-left.php");
