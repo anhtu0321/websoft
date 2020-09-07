@@ -25,10 +25,9 @@
         <li><a href="index.php?view=muctin&id=<?php echo $value['id'];?>"><?php echo $value['tenmuctin'];?></a></li>
 <?php
     }
-?>
-                    
-                    
+?>                  
 <!-- Het -->
+                    <li><a href="index.php?view=pmmt">Phần mềm máy tính</a></li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phần mềm ứng dụng <span class="caret"></span></a>
                         <ul class="dropdown-menu">
