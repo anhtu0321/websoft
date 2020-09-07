@@ -27,7 +27,7 @@
     }
 ?>                  
 <!-- Het -->
-                    <li><a href="index.php?view=pmmt">Phần mềm máy tính</a></li>
+                    
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phần mềm ứng dụng <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -38,7 +38,8 @@
                             <li><a href="http://10.19.3.123/phanloaivv">PM phân loại vụ việc</a></li>
                             <li><a href="http://10.19.3.123/congvan">PM Văn thư</a></li>
                         </ul>
-                    </>
+                    </li>
+                    <li><a href="index.php?view=pmmt">Phần mềm máy tính</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>

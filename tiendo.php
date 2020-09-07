@@ -4,4 +4,4 @@
 3. Hoàn thiện tin tức, báo cáo ngày <!-- Hoàn thành -->
 4. Hoàn thiện giới thiệu <!-- Hoàn thành -->
 5. Đổi mật khẩu tài khoản <!-- Hoàn thành -->
-6. Hoàn thiện phần mềm máy tính
+6. Hoàn thiện phần mềm máy tính <!-- Hoàn thành -->
