@@ -1,8 +1,10 @@
 <?php 
 foreach($mangmuctin as $value){
-    $sql = "select id, tieude, noidung, anh, ngaynhap from tintuc where muctin = '$value[id]' order by id DESC limit 5";
-    $tbtintuc = mysql_query($sql);
-    $rstintuc = mysql_fetch_array($tbtintuc);
+    if($value["thutu"] != '1'){
+        $sql = "select id, tieude, noidung, anh, ngaynhap from tintuc where muctin = '$value[id]' order by id DESC limit 5";
+        $tbtintuc = mysql_query($sql);
+        $rstintuc = mysql_fetch_array($tbtintuc);
+    
 ?>
     <div class="col-sm-12 box">
         <div class="col-sm-12 no-padding border margin-right-5 margin-bottom-5">
@@ -49,7 +51,8 @@ foreach($mangmuctin as $value){
             </div>
         </div>
     </div>
-<?php   
+<?php  
+    }
 }
 ?>
 

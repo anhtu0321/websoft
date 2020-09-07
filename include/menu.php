@@ -17,7 +17,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav">
                 <li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
-                    <li><a href="#">Giới thiệu</a></li>
+                
 <!-- Duyet csdl de lay menu -->
 <?php 
     foreach($mangmuctin as $key => $value){
