@@ -125,7 +125,7 @@
             </div>
             <div class="border login margin-bottom-5 background" id="show">
 				<?php 
-					if($_SESSION["user_huye_id"] != ""){
+					if(isset($_SESSION["user_huye_id"]) && $_SESSION["user_huye_id"] != ""){
 						include("include/main/right/logined.php");
 					}else{
 						include("include/main/right/logouted.php");

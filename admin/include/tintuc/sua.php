@@ -1,8 +1,8 @@
 <?php
-$id = $_GET["id"];
+if(isset($_GET["id"])){$id = $_GET["id"];}else{$id="";}
 $sql = "select muctin, tieude, noidung, anh, noibat, trangthai from tintuc where id = '$id'";
-$tb = mysql_query($sql);
-$rs = mysql_fetch_array($tb);
+$tb = mysqli_query($con,$sql);
+$rs = mysqli_fetch_array($tb);
 ?>
 <div class="col-sm-12 col-md-12 col-lg-12">
     <form action="include/tintuc/xuly.php?form=<?php echo $form?>&id=<?php echo $id?>&filename=<?php echo $rs["anh"]?>" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">
@@ -71,9 +71,9 @@ $rs = mysql_fetch_array($tb);
             <label for="" class="control-label col-sm-2">Mục tin</label>
             <div class="col-sm-10">
                 <select name="muctin" class="form-control">
-                    <option value="">--- Chọn Mục tin ---</option>
+                    <option value="0">--- Chọn Mục tin ---</option>
                     <?php 
-                    while($rsmuctin = mysql_fetch_array($tbmuctin)){
+                    while($rsmuctin = mysqli_fetch_array($tbmuctin)){
                         if($rs["muctin"] == $rsmuctin["id"]){
                     ?>
                             <option value="<?php echo $rsmuctin['id']?>" selected="selected"><?php echo $rsmuctin['tenmuctin']?></option>
@@ -81,7 +81,7 @@ $rs = mysql_fetch_array($tb);
                         }else{
                     ?>
                             <option value="<?php echo $rsmuctin['id']?>"><?php echo $rsmuctin['tenmuctin']?></option>
-                    <?
+                    <?php 
                         }
                     }
                     ?>

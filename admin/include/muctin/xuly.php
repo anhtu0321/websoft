@@ -1,24 +1,41 @@
 <?php 
 include("../../config.php");
-$form = $_GET["form"];
-$id = $_GET["id"];
+session_start();
+if(isset($_GET["form"])){$form = $_GET["form"];}else{$form="";}
+if(isset($_GET["id"])){$id = $_GET["id"];}else{$id="";}
 $tenmuctin = $_POST["tenmuctin"];
 $thutu = $_POST["thutu"];
 $trangthai = $_POST["trangthai"];
-
+// Lấy thông tin phân quyền
+$sqlphanquyen = "select them, sua, xoa from phanquyen where user = '$_SESSION[user_huye_id]' and form = '$form'";
+$tbphanquyen = mysqli_query($con,$sqlphanquyen);
+$rsphanquyen = mysqli_fetch_array($tbphanquyen);
+//thực hiện thêm sửa xóa
 if(isset($_POST["them"])){
-    $sql = "insert into muctin(tenmuctin, thutu, trangthai) values('$tenmuctin','$thutu','$trangthai')";
-    mysql_query($sql);
-    header("location: ../../index.php?form=".$form);
+    if($rsphanquyen["them"]== 1){
+        $sql = "insert into muctin(tenmuctin, thutu, trangthai) values('$tenmuctin','$thutu','$trangthai')";
+        mysqli_query($con,$sql);
+        header("location: ../../index.php?form=".$form);
+    }else{
+        header("location: ../../index.php?form=".$form."&false=false");
+    }
 }
 if(isset($_POST["sua"])){
-    $sql = "update muctin set tenmuctin = '$tenmuctin', thutu = '$thutu', trangthai = '$trangthai' where id = '$id'";
-    mysql_query($sql);
-    header("location: ../../index.php?form=".$form."&act=edit&id=".$id);
+    if($rsphanquyen["sua"]== 1){
+        $sql = "update muctin set tenmuctin = '$tenmuctin', thutu = '$thutu', trangthai = '$trangthai' where id = '$id'";
+        mysqli_query($con,$sql);
+        header("location: ../../index.php?form=".$form."&act=edit&id=".$id);
+    }else{
+        header("location: ../../index.php?form=".$form."&false=false");
+    }
 }
 if(isset($_POST["xoa"])){
-    $sql = "delete from muctin where id = '$id'";
-    mysql_query($sql);
-    header("location: ../../index.php?form=".$form);
+    if($rsphanquyen["xoa"]== 1){
+        $sql = "delete from muctin where id = '$id'";
+        mysqli_query($con,$sql);
+        header("location: ../../index.php?form=".$form);
+    }else{
+        header("location: ../../index.php?form=".$form."&false=false");
+    }
 }
 ?>

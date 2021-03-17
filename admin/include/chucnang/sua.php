@@ -1,8 +1,8 @@
 <?php
 $id = $_GET["id"];
 $sql = "select tenmenu, tenthumuc, thutu, trangthai from chucnang where id = '$id'";
-$tb = mysql_query($sql);
-$rs = mysql_fetch_array($tb);
+$tb = mysqli_query($con,$sql);
+$rs = mysqli_fetch_array($tb);
 ?>
 <div class="col-sm-12 col-md-12 col-lg-12">
     

@@ -1,7 +1,9 @@
 /* ************* DUNG CHUNG ************* */
-*{
+
+* {
     font-family: Arial, Helvetica, sans-serif;
 }
+
 .no-margin {
     margin: 0 !important;
 }
@@ -155,7 +157,7 @@
 
 .navbar-nav>li>a {
     line-height: 30px;
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 @media (min-width: 768px) {
@@ -163,6 +165,70 @@
         padding-top: 5px;
         padding-bottom: 5px;
     }
+}
+
+
+/* CHINH LAI DROPDOW KHI DE CHUOT */
+
+.dropdown>div {
+    position: absolute;
+    clip: rect(1px, 9999px, 9999px, -9999px);
+}
+
+.dropdown:hover .dropdown-content {
+    transform: translate(0, 0);
+    display: block;
+}
+
+.dropdown-content li:last-child {
+    margin: 0px 0px 5px 0px;
+}
+
+.dropdown-content li:first-child {
+    margin: 5px 0px 0px 0px;
+}
+
+.dropdown-content {
+    position: absolute;
+    background: #d3d3d3;
+    z-index: 1000;
+    transform: translate(0, -100%);
+    display: hidden;
+    transition: transform .35s ease!important;
+    min-width: 180px;
+    padding: 5px 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.175);
+}
+
+.dropdown-content>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333333;
+    white-space: nowrap;
+}
+
+.dropdown-content>li>a:hover,
+.dropdown-content>li>a:focus {
+    color: #262626;
+    text-decoration: none;
+    background-color: #f5f5f5;
+}
+
+.dropdown-content>.active>a,
+.dropdown-content>.active>a:hover,
+.dropdown-content>.active>a:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #337ab7;
+    outline: 0;
 }
 
 
@@ -425,8 +491,8 @@
 
 .ngaynhap {
     margin-top: -10px;
-    font-size: 0.9em;
-    color: #808080;
+    font-size: 0.8em;
+    color: #918e8e;
 }
 
 

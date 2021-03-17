@@ -1,6 +1,5 @@
-
 <?php 
-    
+   if(isset($_GET["id"])){$id = $_GET["id"];}else{$id="";} 
 ?>
 <div class="col-sm-12 col-md-12 col-lg-12">
     <table class="table table-condensed table-hover">
@@ -40,7 +39,7 @@
                         </a>
                     </td>
                 </tr>
-                <?    
+                <?php    
                 }
             ?>
         </tbody>

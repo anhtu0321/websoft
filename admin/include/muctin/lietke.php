@@ -1,6 +1,6 @@
 
 <?php 
-   $id = $_GET["id"]; 
+   if(isset($_GET["id"])){$id = $_GET["id"];}else{$id="";}
 ?>
 <div class="col-sm-10 col-md-10 col-lg-10">
     <table class="table table-condensed table-hover">
@@ -16,8 +16,8 @@
         <tbody>
             <?php 
                 $sql = "select id, tenmuctin, thutu, trangthai from muctin order by thutu asc";
-                $tb_muctin = mysql_query($sql); $i=0;
-                while($rs = mysql_fetch_array($tb_muctin)){$i++;
+                $tb_muctin = mysqli_query($con,$sql); $i=0;
+                while($rs = mysqli_fetch_array($tb_muctin)){$i++;
                 ?>
                 <?php
                     if ($id == $rs["id"]){ echo "<tr class='success'>";
@@ -38,7 +38,7 @@
                         </a>
                     </td>
                 </tr>
-                <?    
+                <?php    
                 }
             ?>
         </tbody>

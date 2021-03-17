@@ -2,8 +2,8 @@
 foreach($mangmuctin as $value){
     if($value["thutu"] != '1'){
         $sql = "select id, tieude, noidung, anh, ngaynhap from tintuc where muctin = '$value[id]' order by id DESC limit 5";
-        $tbtintuc = mysql_query($sql);
-        $rstintuc = mysql_fetch_array($tbtintuc);
+        $tbtintuc = mysqli_query($con,$sql);
+        $rstintuc = mysqli_fetch_array($tbtintuc);
     
 ?>
     <div class="col-sm-12 box">
@@ -36,7 +36,7 @@ foreach($mangmuctin as $value){
                 </div>
                 <div class="col-sm-12 body-bottom">
                     <?php 
-                    while($rstintuc = mysql_fetch_array($tbtintuc)){
+                    while($rstintuc = mysqli_fetch_array($tbtintuc)){
                     ?>
                         <p class="p-link">
                             <a href="index.php?view=chitiet&id=<?php echo $rstintuc['id'];?>"><?php echo $rstintuc["tieude"];?></a>

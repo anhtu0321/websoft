@@ -3,8 +3,12 @@
 </div>
 <?php 
     $sql = "select * from users";
-    $tbusers = mysql_query($sql);
-    $act = $_GET["act"];
+    $tbusers = mysqli_query($con,$sql);
+    if(isset($_GET["act"])){$act = $_GET["act"];}else{$act="";}
+    if(isset($_GET["false"])){$false = $_GET["false"];}else{$false="";}
+    if($false == "false"){
+        include("false.php");
+    }
     if ($act == "edit"){
         include("sua.php");
     }else{

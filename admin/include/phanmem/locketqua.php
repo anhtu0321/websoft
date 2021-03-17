@@ -1,9 +1,10 @@
 <?php 
-$tieude = $_POST["tieude"];
-$nguoinhap = $_POST["nguoinhap"];
-$tungay = $_POST["tungay"]; if($tungay ==""){$tungay = date("Y-m-d");}
-$denngay = $_POST["denngay"];if($denngay ==""){$denngay = date("Y-m-d");}
-$trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
+if(isset($_GET["form"])){$form = $_GET["form"];}else{$form="";}
+if(isset($_POST["tieude"])){$tieude = $_POST["tieude"];}else{$tieude="";}
+if(isset($_POST["nguoinhap"])){$nguoinhap = $_POST["nguoinhap"];}else{$nguoinhap="";}
+if(isset($_POST["tungay"])){$tungay = $_POST["tungay"];}else{$tungay=date("Y-m-d");}
+if(isset($_POST["denngay"])){$denngay = $_POST["denngay"];}else{$denngay=date("Y-m-d");}
+if(isset($_POST["trang"])){$trang = $_POST["trang"];}else{$trang=1;}
 ?>
 <div class="col-sm-12 col-md-12 col-lg-12">
     <button class="btn btn-primary btn-sm" onclick = "window.location.href='index.php?form=<?php echo $form;?>&act=add'">Thêm mới phần mềm</button>
@@ -17,8 +18,8 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
                     <option value="">--- Tất cả ---</option>
                     <?php 
                     $sql = "select username from users order by id DESC";
-                    $tbusers = mysql_query($sql);
-                    while($rs = mysql_fetch_array($tbusers)){
+                    $tbusers = mysqli_query($con, $sql);
+                    while($rs = mysqli_fetch_array($tbusers)){
                         if($rs["username"] == $nguoinhap){
                             ?>
                                 <option value="<?php echo $rs['username']?>" selected="selected"><?php echo $rs['username']?></option>
@@ -26,7 +27,7 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
                                 }else{
                             ?>
                                 <option value="<?php echo $rs['username']?>"><?php echo $rs['username']?></option>
-                            <?
+                            <?php
                                 }
                     }
                     ?>
@@ -48,8 +49,8 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
     // Tính tổng số bản ghi
     $sql = "select count(id) as tong from phanmem where ngaynhap between '$tungay' and '$denngay'";
     if ($nguoinhap != ""){$sql = $sql." and nguoinhap ='$nguoinhap'"; }
-    $tbtong = mysql_query($sql);
-    $rstong = mysql_fetch_array($tbtong);
+    $tbtong = mysqli_query($con, $sql);
+    $rstong = mysqli_fetch_array($tbtong);
     $tong = $rstong["tong"];
     // Các thông số để phân trang
     $num = 10;
@@ -60,7 +61,7 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
     $sqlphanmem = "select id, tieude, noidung, file, nguoinhap, ngaynhap from phanmem where ngaynhap between '$tungay' and '$denngay'";
     if ($nguoinhap != ""){$sqlphanmem = $sqlphanmem." and nguoinhap ='$nguoinhap'"; }
     $sqlphanmem = $sqlphanmem." order by id DESC limit $vitribatdau,$num";
-    $tbphanmem = mysql_query($sqlphanmem);
+    $tbphanmem = mysqli_query($con, $sqlphanmem);
     
 ?>
 <!-- Hết -->
@@ -82,12 +83,10 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
             <tbody>
                 <?php 
                     $sothutu = 0;
-                    while($rs = mysql_fetch_array($tbphanmem)){$sothutu++;
+                    while($rs = mysqli_fetch_array($tbphanmem)){$sothutu++;
                     ?>
-                    <?php
-                        if ($id == $rs["id"]){ echo "<tr class='success'>";
-                        }else{echo "<tr>";}
-                    ?>
+                    
+                    <tr>
                         <td><?php echo $sothutu; ?></td>
                         <td><?php echo $rs["tieude"]; ?></td> 
                         <td align="center"><?php echo $rs["nguoinhap"]; ?></td>
@@ -98,7 +97,7 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
                             </a>
                         </td>
                     </tr>
-                    <?    
+                    <?php    
                     }
                 ?>
             </tbody>
@@ -128,7 +127,7 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
                 </button>
             </form>
         </li>
-        <?
+        <?php 
         if($sotrang <= 10){$batdau=1;$ketthuc=$sotrang;}
         else {
             if($trang<5){$batdau=1;$ketthuc=10;}
@@ -136,10 +135,10 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
             else{$batdau=$trang-4;$ketthuc=$trang+5;}
         }
         for($i=$batdau; $i<=$ketthuc; $i++){?>
-            <? if($trang == $i){echo "<li class='disabled'>";}else{echo "<li>";}?>
+            <?php if($trang == $i){echo "<li class='disabled'>";}else{echo "<li>";}?>
                 <form action = "index.php?form=<?php echo $form?>" method="POST"> 
-                    <button type="submit"> <? echo $i;?> 
-                        <input type="text" name = "trang" value ="<? echo $i;?>" hidden="true"> 
+                    <button type="submit"> <?php echo $i;?> 
+                        <input type="text" name = "trang" value ="<?php echo $i;?>" hidden="true"> 
                         <input type="text" name = "tieude" value ="<?php echo $tieude;?>" hidden="true"> 
                         <input type="text" name = "nguoinhap" value ="<?php echo $nguoinhap;?>" hidden="true"> 
                         <input type="text" name = "tungay" value ="<?php echo $tungay;?>" hidden="true"> 
@@ -147,11 +146,11 @@ $trang = $_POST["trang"]; if($trang == ""){$trang = 1;}
                     </button>
                 </form>
             </li>
-        <? }?>
+        <?php }?>
         <li>
             <form action = "index.php?form=<?php echo $form?>" method="POST"> 
                 <button type="submit"> End 
-                    <input type="text" name = "trang" value ="<? echo $sotrang;?>" hidden="true"> 
+                    <input type="text" name = "trang" value ="<?php echo $sotrang;?>" hidden="true"> 
                     <input type="text" name = "tieude" value ="<?php echo $tieude;?>" hidden="true"> 
                     <input type="text" name = "nguoinhap" value ="<?php echo $nguoinhap;?>" hidden="true"> 
                     <input type="text" name = "tungay" value ="<?php echo $tungay;?>" hidden="true"> 

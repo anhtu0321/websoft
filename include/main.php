@@ -1,24 +1,51 @@
 <?php
-	$view = $_GET["view"];
+	if(isset($_GET["view"])){$view = $_GET["view"];}else{$view="";}
+	
 ?>
 <div class="row">
     <div class="module-left main-left">
 		<?php 
-			if($view == "chitiet"){
-				include("include/chitiettin.php");
-			}else if($view == "muctin"){
-				include("include/muctin.php");
-			}else if($view == "bcn"){
-				include("include/dsbaocaongay.php");
-			}else if($view == "pmmt"){
-				include("include/dspmmaytinh.php");
+			switch ($view) {
+				case "chitiet":
+					include("include/chitiettin.php");
+					break;
+				case "muctin":
+					include("include/muctin.php");
+					break;
+				case "bcn":
+					include("include/dsbaocaongay.php");
+					break;
+				case "chitietbcn":
+					include("include/chitietbcn.php");
+					break;
+				case "pmmt":
+					include("include/dspmmaytinh.php");
+					break;
+				case "chitietpmmt":
+					include("include/chitietpmmt.php");
+					break;
+				default:
+					include("include/main/center-left.php");
+					include("include/main/center-right.php");
+					include("include/main/khauhieu.php");
+					include("include/main/box-tin.php");
+				
 			}
-			else{
-				include("include/main/center-left.php");
-				include("include/main/center-right.php");
-				include("include/main/khauhieu.php");
-				include("include/main/box-tin.php");
-			}
+			// if($view == "chitiet"){
+			// 	include("include/chitiettin.php");
+			// }else if($view == "muctin"){
+			// 	include("include/muctin.php");
+			// }else if($view == "bcn"){
+			// 	include("include/dsbaocaongay.php");
+			// }else if($view == "pmmt"){
+			// 	include("include/dspmmaytinh.php");
+			// }
+			// else{
+			// 	include("include/main/center-left.php");
+			// 	include("include/main/center-right.php");
+			// 	include("include/main/khauhieu.php");
+			// 	include("include/main/box-tin.php");
+			// }
 		?>
     </div>
     <div class="no-padding main-right">

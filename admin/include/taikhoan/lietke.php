@@ -1,3 +1,6 @@
+<?php 
+    if(isset($_GET["id"])){$id = $_GET["id"];}else{$id="";}
+?>
 <div class="col-sm-4 col-md-4 col-lg-4">
     <table class="table table-condensed table-hover">
         <thead>
@@ -11,7 +14,7 @@
         <tbody>
             <?php 
                 $i=0;
-                while($rs = mysql_fetch_array($tbusers)){
+                while($rs = mysqli_fetch_array($tbusers)){
                     $i+=1;
                 ?>
                 <?php
@@ -26,17 +29,16 @@
                         </a>
                     </td>
                 </tr>
-                <?    
+                <?php    
                 }
             ?>
         </tbody>
     </table>
 </div>
-<div class="col-sm-8 col-md-8 col-lg-8">
-    <?php 
-    $id = $_GET["id"];
+<?php 
     if ($id !=""){
-    ?>
+?>
+<div class="col-sm-8 col-md-8 col-lg-8">
     <form action="include/taikhoan/xuly.php?form=<?php echo $form?>&id=<?php echo $id;?>" method="POST" class="form-inline" role="form">
         <table class="table table-hover table-condensed ">
             <thead>
@@ -60,7 +62,7 @@
                 <?php 
                 foreach($mangchucnang as $key => $value){
                     $sql = "select * from phanquyen where user = '$id' and form = '$value[id]'";
-                    $tb = mysql_query($sql); $rs = mysql_fetch_array($tb);
+                    $tb = mysqli_query($con,$sql); $rs = mysqli_fetch_array($tb);
                 ?>
                 <tr>
                     <td>
@@ -96,7 +98,7 @@
                     </td>
                     <td align="center"><input type="checkbox" class="check<?php echo $key?>" onclick = "check(this);" ></td>      
                 </tr>
-                <?
+                <?php 
                 }
                 ?>
                 

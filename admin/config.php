@@ -1,9 +1,9 @@
 <?php
-date_default_timezone_get("Asia/Ho_Chi_Minh");
+// date_default_timezone_get("Asia/Ho_Chi_Minh");
 $server = "localhost";
 $user = "root";
-$pass = "299092kaka";
+$pass = "tuanninh1";
 $database = "websoft";
-$con = mysql_connect($server,$user,$pass);
-mysql_select_db($database,$con);
+$con = mysqli_connect($server,$user,$pass);
+mysqli_select_db($con,$database);
 ?>

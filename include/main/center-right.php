@@ -1,6 +1,6 @@
 <?php
 	$sqltinmoi = "select id, tieude, noidung, anh, ngaynhap from tintuc order by id DESC limit 10";
-	$tbtinmoi = mysql_query($sqltinmoi);
+	$tbtinmoi = mysqli_query($con,$sqltinmoi);
 ?>
 <div class="col-sm-3 module-center">  
             <div class="border tin-moi">
@@ -10,7 +10,7 @@
                 <div class="tin-moi-body">
                     <ul>
                         <?php
-                            while($rstinmoi = mysql_fetch_array($tbtinmoi)){
+                            while($rstinmoi = mysqli_fetch_array($tbtinmoi)){
                         ?>
                                 <li><a href="index.php?view=chitiet&id=<?php echo $rstinmoi['id'];?>"><?php echo $rstinmoi["tieude"];?></a><br></li>
                         <?php

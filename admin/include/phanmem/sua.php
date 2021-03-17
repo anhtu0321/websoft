@@ -1,8 +1,8 @@
 <?php
-$id = $_GET["id"];
+if(isset($_GET["id"])){$id = $_GET["id"];}else {$id="";}
 $sql = "select tieude, noidung, file from phanmem where id = '$id'";
-$tb = mysql_query($sql);
-$rs = mysql_fetch_array($tb);
+$tb = mysqli_query($con,$sql);
+$rs = mysqli_fetch_array($tb);
 ?>
 <div class="col-sm-12 col-md-12 col-lg-12">
     <form action="include/phanmem/xuly.php?form=<?php echo $form?>&id=<?php echo $id?>&filename=<?php echo $rs["file"]?>" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">

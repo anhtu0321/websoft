@@ -1,25 +1,39 @@
 <?php 
 include("../../config.php");
-$form = $_GET["form"];
-$id = $_GET["id"];
+session_start();
+if(isset($_GET["form"])){$form = $_GET["form"];}else{$form="";}
+if(isset($_GET["id"])){$id = $_GET["id"];}else{$id="";}
+if(isset($_POST["tenmenu"])){$tenmenu = $_POST["tenmenu"];}else{$tenmenu="";}
 $tenmenu = $_POST["tenmenu"];
 $tenthumuc = $_POST["tenthumuc"];
 $thutu = $_POST["thutu"];
 $trangthai = $_POST["trangthai"];
 
 if(isset($_POST["them"])){
-    $sql = "insert into chucnang(tenmenu, tenthumuc, thutu, trangthai) values('$tenmenu','$tenthumuc','$thutu','$trangthai')";
-    mysql_query($sql);
-    header("location: ../../index.php?form=".$form);
+    if($rsphanquyen["them"]== 1){
+        $sql = "insert into chucnang(tenmenu, tenthumuc, thutu, trangthai) values('$tenmenu','$tenthumuc','$thutu','$trangthai')";
+        mysqli_query($con,$sql);
+        header("location: ../../index.php?form=".$form);
+    }else{
+        header("location: ../../index.php?form=".$form."&false=false");
+    }
 }
 if(isset($_POST["sua"])){
-    $sql = "update chucnang set tenmenu = '$tenmenu', tenthumuc = '$tenthumuc', thutu = '$thutu', trangthai = '$trangthai' where id = '$id'";
-    mysql_query($sql);
-    header("location: ../../index.php?form=".$form."&act=edit&id=".$id);
+    if($rsphanquyen["sua"]== 1){
+        $sql = "update chucnang set tenmenu = '$tenmenu', tenthumuc = '$tenthumuc', thutu = '$thutu', trangthai = '$trangthai' where id = '$id'";
+        mysqli_query($con,$sql);
+        header("location: ../../index.php?form=".$form."&act=edit&id=".$id);
+    }else{
+        header("location: ../../index.php?form=".$form."&false=false");
+    }
 }
 if(isset($_POST["xoa"])){
-    $sql = "delete from chucnang where id = '$id'";
-    mysql_query($sql);
-    header("location: ../../index.php?form=".$form);
+    if($rsphanquyen["xoa"]== 1){
+        $sql = "delete from chucnang where id = '$id'";
+        mysqli_query($con,$sql);
+        header("location: ../../index.php?form=".$form);
+    }else{
+        header("location: ../../index.php?form=".$form."&false=false");
+    }
 }
 ?>

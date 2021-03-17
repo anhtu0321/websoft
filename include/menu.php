@@ -30,14 +30,16 @@
                     
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Phần mềm ứng dụng <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="http://10.19.3.123/guinhanvb">PM gửi nhận văn bản</a></li>
-                            <li><a href="http://10.19.3.123/phuongtien">PM Quản lý phương tiện</a></li>
-                            <li><a href="http://10.19.3.123/taisan">PM quản lý tài sản</a></li>
-                            <li><a href="http://10.19.3.123/congviec">PM quản lý công việc</a></li>
-                            <li><a href="http://10.19.3.123/phanloaivv">PM phân loại vụ việc</a></li>
-                            <li><a href="http://10.19.3.123/congvan">PM Văn thư</a></li>
-                        </ul>
+                        <div>
+                            <ul class="dropdown-content">
+                                <li><a href="http://10.19.3.123/guinhanvb">PM gửi nhận văn bản</a></li>
+                                <li><a href="http://10.19.3.123/phuongtien">PM Quản lý phương tiện</a></li>
+                                <li><a href="http://10.19.3.123/taisan">PM quản lý tài sản</a></li>
+                                <li><a href="http://10.19.3.123/congviec">PM quản lý công việc</a></li>
+                                <li><a href="http://10.19.3.123/phanloaivv">PM phân loại vụ việc</a></li>
+                                <li><a href="http://10.19.3.123/congvan">PM Văn thư</a></li>
+                            </ul>
+                        </div>
                     </li>
                     <li><a href="index.php?view=pmmt">Phần mềm máy tính</a></li>
                 </ul>

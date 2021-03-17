@@ -1,4 +1,4 @@
-<? 
+<?php 
 ob_start();
 include("config.php");
 session_start(); ?>
@@ -43,15 +43,15 @@ session_start(); ?>
           $username = $_POST["username"];
           $password = $_POST["password"];
           $sql = "select * from users where (username = '$username') and (password = '$password')";
-          $tb = mysql_query($sql);
-          $num = mysql_num_rows($tb);
+          $tb = mysqli_query($con, $sql);
+          $num = mysqli_num_rows($tb);
           if($num == 0){?>
                <script>
           document.getElementById("thongbao").textContent = "Đăng nhập không thành công !";
           </script>
                <?php }
           else{
-               $rs = mysql_fetch_array($tb);
+               $rs = mysqli_fetch_array($tb);
                $_SESSION["user_huye_id"] = $rs["id"];
                $_SESSION["user_huye_name"] = $rs["username"];
                $_SESSION["user_huye_full_name"] = $rs["fullname"];

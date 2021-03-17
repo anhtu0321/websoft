@@ -1,7 +1,7 @@
 <?php
 	$sqlnoibat = "select id, tieude, noidung, anh, ngaynhap from tintuc where noibat = 1 order by id DESC limit 6";
-	$tbnoibat = mysql_query($sqlnoibat);
-	$rsnoibat = mysql_fetch_array($tbnoibat);
+	$tbnoibat = mysqli_query($con,$sqlnoibat);
+	$rsnoibat = mysqli_fetch_array($tbnoibat);
 ?>
 <div class="col-sm-9 module-center">
 			<div class="layout-top">
@@ -29,7 +29,7 @@
 				<div class="col-sm-5 list-new">
 					<ul>
 						<?php
-							while($rsnoibat = mysql_fetch_array($tbnoibat)){
+							while($rsnoibat = mysqli_fetch_array($tbnoibat)){
 						?>
 								<li>
 									<a href="index.php?view=chitiet&id=<?php echo $rsnoibat['id'];?>">

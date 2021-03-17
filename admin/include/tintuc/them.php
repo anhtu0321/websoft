@@ -45,12 +45,12 @@
             <label for="" class="control-label col-sm-2">Mục tin</label>
             <div class="col-sm-10">
                 <select name="muctin" class="form-control">
-                    <option value="">--- Chọn Mục tin ---</option>
+                    <option value="0">--- Chọn Mục tin ---</option>
                     <?php 
-                    while($rs = mysql_fetch_array($tbmuctin)){
+                    while($rs = mysqli_fetch_array($tbmuctin)){
                     ?>
                         <option value="<?php echo $rs['id']?>"><?php echo $rs['tenmuctin']?></option>
-                    <?
+                    <?php
                     }
                     ?>
                 </select>

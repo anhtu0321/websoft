@@ -1,9 +1,12 @@
+<?php 
+$ngay = date('d/m/Y');
+?>
 <div class="col-sm-12 col-md-12 col-lg-12">
    <form action="include/baocaongay/xuly.php?form=<?php echo $form?>" method="POST" class="form-horizontal" role="form" enctype="multipart/form-data">
         <div class="form-group">
             <label for="" class="control-label col-sm-2">Tiêu đề</label>
             <div class="col-sm-10">
-                <input type="text" name="tieude" class="form-control" placeholder="Tiêu đề">
+                <input type="text" name="tieude" class="form-control" placeholder="Tiêu đề" value="B/c ngày <?php echo $ngay;?>">
             </div>
         </div>
         <div class="form-group">

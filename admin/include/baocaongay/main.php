@@ -4,10 +4,10 @@
 </div>
 <?php 
     $sql = "select id, tieude from baocaongay where trangthai = 1 order by thutu asc";
-    $tbbaocaongay = mysql_query($sql);
-    $form = $_GET["form"];
-    $act = $_GET["act"];
-    $false = $_GET["false"];
+    $tbbaocaongay = mysqli_query($con,$sql);
+    if(isset($_GET["form"])){$form = $_GET["form"];}else{ $form="";}
+    if(isset($_GET["act"])){$act = $_GET["act"];}else{ $act="";}
+    if(isset($_GET["false"])){$false = $_GET["false"];}else{ $false="";}
     if($false == "false"){
         include("false.php");
     }
