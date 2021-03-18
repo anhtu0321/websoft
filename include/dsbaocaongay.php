@@ -1,5 +1,5 @@
 <?php
-    $id_user = $_SESSION["user_huye_id"];
+    if(isset($_SESSION["user_huye_id"])){ $id_user = $_SESSION["user_huye_id"]; }else{ $id_user=""; }
     $sql_kt = "select xem from phanquyen where user = '$id_user' and form = '3'";
     $tb_kt = mysqli_query($con,$sql_kt);
     $rs_kt = mysqli_fetch_array($tb_kt);

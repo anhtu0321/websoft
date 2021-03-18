@@ -13,7 +13,7 @@
 					<div class="info">
 						<p>
 							<?php 
-                                $tomtat = substr($rsnoibat["noidung"], 0, 150);
+                                $tomtat = substr($rsnoibat["noidung"], 0, 350);
                                 $arr_noidung = explode(' ', $tomtat);
                                 array_pop($arr_noidung);
                                 $intomtat = "";

@@ -278,6 +278,11 @@
     padding: 0px 5px;
 }
 
+.header-new {
+    max-height: 450px;
+    min-height: 320px;
+}
+
 .header-new h4 {
     font-size: 1.1em;
     font-weight: bold;
@@ -290,11 +295,13 @@
 }
 
 .header-new img {
-    width: 100%;
+    position: absolute;
+    width: 98%;
+    clip: rect(0px, 9999px, 220px, 0px);
 }
 
 .info p {
-    width: 100%;
+    width: 98%;
     text-align: justify;
     line-height: 22px;
     margin-top: 10px;
