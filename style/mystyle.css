@@ -234,6 +234,15 @@
 
 /* ****************** Xử lý main ******************* */
 
+.main-full {
+    width: 98%;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 11px;
+    background: #555454;
+}
+
 .main-left {
     width: 80%;
     position: relative;
