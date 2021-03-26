@@ -18,5 +18,6 @@
     }else{
         include("locketqua.php");
     }
+        
     // include("lietke.php");
 ?>

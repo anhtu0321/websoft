@@ -8,6 +8,10 @@ $tenmenu = $_POST["tenmenu"];
 $tenthumuc = $_POST["tenthumuc"];
 $thutu = $_POST["thutu"];
 $trangthai = $_POST["trangthai"];
+// Lấy thông tin phân quyền
+$sqlphanquyen = "select them, sua, xoa from phanquyen where user = '$_SESSION[user_huye_id]' and form = '$form'";
+$tbphanquyen = mysqli_query($con,$sqlphanquyen);
+$rsphanquyen = mysqli_fetch_array($tbphanquyen);
 
 if(isset($_POST["them"])){
     if($rsphanquyen["them"]== 1){

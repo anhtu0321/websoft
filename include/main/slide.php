@@ -469,48 +469,48 @@
         <div id="jssor_1" style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:480px;overflow:hidden;visibility:hidden;">
             <!-- Loading Screen -->
             <div data-u="loading" class="jssorl-009-spin" style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
-                <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img-slide/spin.svg" />
+                <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="imgslide/spin.svg" />
             </div>
             <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:380px;overflow:hidden;">
                 <div>
-                    <img data-u="image" src="img-slide/031.jpg" />
-                    <img data-u="thumb" src="img-slide/031-s190x90.jpg" />
+                    <img data-u="image" src="imgslide/031.jpg" />
+                    <img data-u="thumb" src="imgslide/031-s190x90.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="img-slide/032.jpg" />
-                    <img data-u="thumb" src="img-slide/032-s190x90.jpg" />
+                    <img data-u="image" src="imgslide/032.jpg" />
+                    <img data-u="thumb" src="imgslide/032-s190x90.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="img-slide/033.jpg" />
-                    <img data-u="thumb" src="img-slide/033-s190x90.jpg" />
+                    <img data-u="image" src="imgslide/033.jpg" />
+                    <img data-u="thumb" src="imgslide/033-s190x90.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="img-slide/034.jpg" />
-                    <img data-u="thumb" src="img-slide/034-s190x90.jpg" />
+                    <img data-u="image" src="imgslide/034.jpg" />
+                    <img data-u="thumb" src="imgslide/034-s190x90.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="img-slide/035.jpg" />
-                    <img data-u="thumb" src="img-slide/035-s190x90.jpg" />
+                    <img data-u="image" src="imgslide/035.jpg" />
+                    <img data-u="thumb" src="imgslide/035-s190x90.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="img-slide/036.jpg" />
-                    <img data-u="thumb" src="img-slide/036-s190x90.jpg" />
+                    <img data-u="image" src="imgslide/036.jpg" />
+                    <img data-u="thumb" src="imgslide/036-s190x90.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="img-slide/037.jpg" />
-                    <img data-u="thumb" src="img-slide/037-s190x90.jpg" />
+                    <img data-u="image" src="imgslide/037.jpg" />
+                    <img data-u="thumb" src="imgslide/037-s190x90.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="img-slide/038.jpg" />
-                    <img data-u="thumb" src="img-slide/038-s190x90.jpg" />
+                    <img data-u="image" src="imgslide/038.jpg" />
+                    <img data-u="thumb" src="imgslide/038-s190x90.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="img-slide/039.jpg" />
-                    <img data-u="thumb" src="img-slide/039-s190x90.jpg" />
+                    <img data-u="image" src="imgslide/039.jpg" />
+                    <img data-u="thumb" src="imgslide/039-s190x90.jpg" />
                 </div>
                 <div>
-                    <img data-u="image" src="img-slide/040.jpg" />
-                    <img data-u="thumb" src="img-slide/040-s190x90.jpg" />
+                    <img data-u="image" src="imgslide/040.jpg" />
+                    <img data-u="thumb" src="imgslide/040-s190x90.jpg" />
                 </div>
             </div>
             <!-- Thumbnail Navigator -->
