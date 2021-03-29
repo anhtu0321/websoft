@@ -1,5 +1,5 @@
 <?php 
-$sql = "select * from anhslide";
+$sql = "select * from anhslide order by thutu ASC";
 $tbslide = mysqli_query($con, $sql);
 ?>
 <div class="col-sm-10 col-md-10 col-lg-10">
@@ -22,7 +22,7 @@ $tbslide = mysqli_query($con, $sql);
       <tr class="tr">
         <td class="td_duoi"><?php echo $i; ?></td>
         <td class="td_duoi"><?php echo $rsslide["tenanh"];?></td>
-        <td class="td_duoi"><img src="../imgslide/<?php echo $rsslide["url"];?>" width="100px" height="100px" /></td>
+        <td class="td_duoi"><img src="../imgslide/<?php echo $rsslide["url"];?>" width="150px" height="100px" /></td>
         <td class="td_duoi"><?php echo $rsslide["thutu"];?></td>    
         <td class="td_duoi"><a href="index.php?form=<?php echo $form?>&act=edit&id=<?php echo $rsslide["id"];?>"><img src="img/b_edit.png"></a></td>
       </tr>

@@ -1,5 +1,5 @@
 <div class="col-sm-10 col-md-10 col-lg-10">
-    <form action="include/slide/xuly.php" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form action="include/slide/xuly.php?form=<?php echo $form?>" method="post" enctype="multipart/form-data" class="form-horizontal">
         <div class="form-group">
             <label for="" class="control-label col-sm-2">Tên ảnh</label>
             <div class="col-sm-10">

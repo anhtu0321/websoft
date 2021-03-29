@@ -1,40 +1,63 @@
 <?php 
 session_start();
 include("../../config.php");
-$tenAnh = $_POST["tenAnh"];
-$url = $_FILES["url"]["name"];
-$thuTu = $_POST["thuTu"];
-$id = $_GET["id"];
+if(isset($_GET["form"])){$form = $_GET["form"];}else {$form="";}
+if(isset($_GET["id"])){$id = $_GET["id"];}else {$id="";}
+if(isset($_GET["filename"])){$filename = $_GET["filename"];}else {$filename="";}
+if(isset($_POST["tenanh"])){$tenanh = $_POST["tenanh"];}else{$tenanh="";}
+if(isset($_POST["thutu"])){$thutu = $_POST["thutu"];}else{$thutu="";}
+$tenfile = $_FILES["url"]["name"];
 $time = date("Ymdhis");
-if($url!=""){
-	$url=$time.$url;
-	$url1="uploads/".$url;
-	}
+// xử lý tên file
+if($tenfile != ""){
+    $file = $time.str_slug($tenfile);
+    $dichcopy = "../../../imgslide/".$file;
+}else{
+    $file="";
+    $dichcopy="";
+}
+// Lấy thông tin phân quyền
+$sqlphanquyen = "select them, sua, xoa from phanquyen where user = '$_SESSION[user_huye_id]' and form = '$form'";
+$tbphanquyen = mysqli_query($con, $sqlphanquyen);
+$rsphanquyen = mysqli_fetch_array($tbphanquyen);
+
 if(isset($_POST["them"])){
-	if($url!=""){
-		copy($_FILES["url"]["tmp_name"],"../../../uploads/".$url);}
-	$sql = "insert into anhbanner(tenAnh,url,thuTu) value('$tenAnh','$url1','$thuTu')";
-	mysqli_query($connect,$sql);
-	header("location:../../index.php?quanly=qlanhbanner&act=them");
+	if($rsphanquyen["them"]== 1){
+		if($tenfile != ""){copy($_FILES["url"]["tmp_name"],$dichcopy);}
+        $sql = "insert into anhslide(tenanh, url, thutu) values('$tenanh','$file','$thutu')";
+        mysqli_query($con, $sql);
+        header("location: ../../index.php?form=".$form);
+    }else{
+        header("location: ../../index.php?form=".$form."&false=false");
 	}
-else if($_POST["sua"]){
-	if($url!=""){
-		$sql = "select url from anhbanner where idAnh = $id";
-		$tb = mysqli_query($connect,$sql);
-		$rs = mysqli_fetch_array($tb);
-		if(file_exists("../../../".$rs["url"])){
-			unlink("../../../".$rs["url"]);}
-			copy($_FILES["url"]["tmp_name"],"../../../uploads/".$url);
-	$sql = "update anhbanner set tenAnh='$tenAnh',url='$url1',thuTu='$thuTu' where idAnh=$id";
-	} else{
-			$sql = "update anhbanner set tenAnh='$tenAnh',thuTu='$thuTu', where idAnh=$id";
+}
+if(isset($_POST["sua"])){
+	if($rsphanquyen["sua"]== 1){
+		if($file!=""){
+			if(file_exists("../../../imgslide/".$filename)){
+				unlink("../../../imgslide/".$filename);
+			}
+			copy($_FILES["url"]["tmp_name"],$dichcopy);
+			$sql = "update anhslide set tenanh='$tenanh',url='$file',thutu='$thutu' where id=$id";
+		} else{
+			$sql = "update anhslide set tenanh='$tenanh',thutu='$thutu' where id=$id";
+		}
+		mysqli_query($con,$sql);
+		header("location: ../../index.php?form=".$form);
+	}else{
+        header("location: ../../index.php?form=".$form."&false=false");
 	}
-	mysqli_query($connect,$sql);
-	header("location:../../index.php?quanly=qlanhbanner&act=sua&id=$id");
-	}
-	else if(isset($_POST["xoa"])){
-	$sql = "delete from anhbanner where idAnh = $id";
-	mysqli_query($connect,$sql);
-	header("location:../../index.php?quanly=qlanhbanner&act=them");
-	}
+}
+if(isset($_POST["xoa"])){
+	if($rsphanquyen["xoa"]== 1){
+        if(file_exists("../../../imgslide/".$filename)){
+            unlink("../../../imgslide/".$filename);
+        }
+        $sql = "delete from anhslide where id = '$id'";
+        mysqli_query($con, $sql);
+        header("location: ../../index.php?form=".$form);
+    }else{
+        header("location: ../../index.php?form=".$form."&false=false");
+    }
+}
 ?>

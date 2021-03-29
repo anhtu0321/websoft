@@ -6,7 +6,7 @@
 ?>
 
 <div class="col-sm-10 col-md-10 col-lg-10">
-    <form action="include/slide/xuly.php?id=<?php echo $id;?>" method="post" enctype="multipart/form-data" class="form-horizontal">
+    <form action="include/slide/xuly.php?id=<?php echo $id;?>&form=<?php echo $form?>&filename=<?php echo $rs["url"]?>" method="post" enctype="multipart/form-data" class="form-horizontal">
         <div class="form-group">
             <label for="" class="control-label col-sm-2">Tên ảnh</label>
             <div class="col-sm-10">
@@ -29,6 +29,8 @@
         <div class="form-group">
             <div class="col-sm-10 col-sm-offset-2">
                 <button type="submit" class="btn btn-primary" name="sua">Sửa hình ảnh</button>
+                <button type="submit" class="btn btn-primary" name="xoa" onclick="return confirm('Muốn xóa thật à ?');">Xóa ảnh</button>
+                <button type="button" class="btn btn-primary" onclick="window.location.href = 'index.php?form=<?php echo $form;?>'">Quay lại</button>
             </div>
         </div>
     </form>
