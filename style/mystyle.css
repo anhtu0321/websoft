@@ -240,7 +240,8 @@
     padding-top: 35px;
     padding-bottom: 35px;
     margin-left: 11px;
-    background: url('../img/vango3.jpg');
+    background: linear-gradient(#e62006, #e62006);
+    /* background: url('../img/vango3.jpg'); */
     background-size: cover;
 }
 

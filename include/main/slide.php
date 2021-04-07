@@ -521,5 +521,3 @@
             jssor_1_slider_init();
         </script>
         <!-- #endregion Jssor Slider End -->
-
-

@@ -24,3 +24,9 @@
 		<img src="img/cand-int.jpg" width="100%"/>
 	</div>
 </div>
+
+<div class="col-sm-12 module-right">
+	<?php
+		include("include/main/right/luottruycap.php");
+	?>
+</div>
