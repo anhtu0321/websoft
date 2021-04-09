@@ -4,7 +4,7 @@
 	$rsnoibat = mysqli_fetch_array($tbnoibat);
 ?>
 <div class="col-sm-9 module-center">
-	<div class="layout-top col-sm-12 no-padding">
+	<div class="layout-top col-sm-12 no-padding background">
 		<div class="col-sm-7 box-new">
 			<div class="header-new">
 				<h4><a href="index.php?view=chitiet&id=<?php echo $rsnoibat['id'];?>"><?php echo $rsnoibat["tieude"]; ?></a></h4>

@@ -3,7 +3,7 @@
 	$tbtinmoi = mysqli_query($con,$sqltinmoi);
 ?>
 <div class="col-sm-3 module-center">  
-    <div class="border tin-moi">
+    <div class="border tin-moi background">
         <div class="title">
             <a>Tin mới nhất</a>
         </div>
