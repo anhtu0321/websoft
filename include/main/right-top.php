@@ -5,11 +5,6 @@
                         <option selected>Liên kết Website...</option>
                         <option value="http://www.bca/">Bộ Công an
 						</option>
-						<option value="http://www.tc4.bca">Tổng cục Hậu cần
-						</option>
-                        <option value="http://www.v22.bca">Vụ Tài chính - BCA
-						</option>
-						<option value="http://www.h49.bca">Cục THNV H49</option>
 						<option value="//10.159.3.10">Công an An Giang
 						</option>
 						<option value="http://www.bali.bca">Công an Bạc Liêu
@@ -54,8 +49,6 @@
 						<option value="http://www.hagi.bca/">Công an Hà Giang
 						</option>
 						<option value="http://10.21.3.10">Công an Hà Nam
-						</option>
-						<option value="http://www.hata.bca">Công an Hà Tây
 						</option>
 						<option value="//10.63.3.10">Công an Hà Tĩnh</option>
 						<option value="http://www.hadu.bca">Công an Hải Dương

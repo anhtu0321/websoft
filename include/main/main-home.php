@@ -9,22 +9,26 @@
 		<?php
 			include("include/main/right-top.php");
 		?>
-		
     </div>
 </div>
 
-
-
 <div class="row">
-	<div class="main-full">
+	<div class="col-sm-12 margin-bottom-5">
+		<div class="col-sm-12 main-full">
+			<?php
+				include("include/main/slide1.php");
+			?>
+		</div>
+	</div>
+	<div class="col-sm-12">
 		<?php
-			include("include/main/slide.php");
+			include("include/main/khauhieu.php");
 		?>
 	</div>
 	<div class="module-left main-left">
 		
 		<?php
-			include("include/main/khauhieu.php");
+			
 			include("include/main/box-tin.php");
 		?>
 	</div>

@@ -13,6 +13,7 @@
             <select name="trangthai" class="form-control">
                 <option value="0">Không sử dụng</option>
                 <option value="1" selected="selected">Sử dụng</option>
+                <option value="2">Sự kiện</option>
             </select>
         </div>
         <button type="submit" name="them" class="btn btn-primary">Thêm Mục tin</button>

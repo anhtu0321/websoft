@@ -1,3 +1,9 @@
+<div class="col-sm-12 module-right">
+	<?php
+		include("include/main/right/sukien.php");
+	?>
+</div>
+
 <div class="col-sm-12 module-right">    
 	<div class="border img-right">
 		<img src="img/banner.jpg" width="100%"/>

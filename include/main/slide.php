@@ -1,4 +1,3 @@
-
 <?php 
     $sql = "select url from anhslide order by thutu ASC";
     $tb = mysqli_query($con, $sql);

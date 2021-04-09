@@ -16,19 +16,9 @@ $rs = mysqli_fetch_array($tb);
         </div>
         <div class="form-group form-group-sm">
             <select name="trangthai" class="form-control">
-            <?php
-                if($rs["trangthai"]==1){
-                ?>
-                    <option value="0">Không sử dụng</option>
-                    <option value="1" selected="selected">Sử dụng</option>
-                <?php
-                }else{
-            ?>
-                <option value="0" selected="selected">Không sử dụng</option>
-                <option value="1">Sử dụng</option>
-                <?php 
-                }
-                ?>
+                    <option value="0" <?php if($rs['trangthai']==0){echo 'selected="selected"';}?>>Không sử dụng</option>
+                    <option value="1" <?php if($rs['trangthai']==1){echo 'selected="selected"';}?>>Sử dụng</option>
+                    <option value="2" <?php if($rs['trangthai']==2){echo 'selected="selected"';}?>>Sự kiện</option>
             </select>
         </div>
         <button type="submit" name="sua" class="btn btn-primary">Sửa Mục tin</button>

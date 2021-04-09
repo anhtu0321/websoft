@@ -4,7 +4,7 @@
 	$rsnoibat = mysqli_fetch_array($tbnoibat);
 ?>
 <div class="col-sm-9 module-center">
-	<div class="layout-top">
+	<div class="layout-top col-sm-12 no-padding">
 		<div class="col-sm-7 box-new">
 			<div class="header-new">
 				<h4><a href="index.php?view=chitiet&id=<?php echo $rsnoibat['id'];?>"><?php echo $rsnoibat["tieude"]; ?></a></h4>
@@ -13,7 +13,7 @@
 			<div class="info">
 				<p>
 					<?php 
-						$tomtat = substr($rsnoibat["noidung"], 0, 350);
+						$tomtat = substr($rsnoibat["noidung"], 0, 260);
 						$arr_noidung = explode(' ', $tomtat);
 						array_pop($arr_noidung);
 						$intomtat = "";
@@ -44,4 +44,5 @@
 			</ul>
 		</div>
 	</div>
+	<div class="xoa"></div>
 </div>

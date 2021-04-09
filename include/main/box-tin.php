@@ -21,7 +21,7 @@ foreach($mangmuctin as $value){
                         <p class="right-title"><a href="index.php?view=chitiet&id=<?php echo $rstintuc['id'];?>"><?php echo $rstintuc["tieude"];?></a><span class="ngay"> (18/05/2020)</span> </p>
                         <p class="right-info">
                             <?php 
-                                $tomtat = substr($rstintuc["noidung"], 0, 300);
+                                $tomtat = substr($rstintuc["noidung"], 0, 380);
                                 $arr_noidung = explode(' ', $tomtat);
                                 array_pop($arr_noidung);
                                 $intomtat = "";

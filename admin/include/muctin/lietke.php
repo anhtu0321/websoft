@@ -30,6 +30,7 @@
                         <?php 
                             if($rs["trangthai"]==1){echo "Sử dụng";};
                             if($rs["trangthai"]==0){echo "Không Sử dụng";};
+                            if($rs["trangthai"]==2){echo "Sự kiện";};
                         ?>
                      </td>
                     <td>

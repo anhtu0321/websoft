@@ -9,8 +9,12 @@
             <a href="index.php?view=bcn">Xem báo cáo ngày</a>
         </div>
         <div class="col-sm-12 margin-bottom-5 margin-left-5 no-bold">
+            <a href='admin'>Trang quản trị</a>
+        </div>
+        <div class="col-sm-12 margin-bottom-5 margin-left-5 no-bold">
             <a data-toggle="modal" href='#doimatkhau'>Đổi mật khẩu</a>
         </div>
+        
         <div class="col-sm-12 margin-bottom-5 margin-left-5 no-bold">    
             <a href="thoat.php">Thoát</a>
         </div>
